@@ -49,7 +49,7 @@ export const bonuses: Bonus[] = [
     description: "Double your first deposit and start playing with twice the bankroll.",
     link: "#",
     image: "/casino-1.png",
-    tags: ["Welcome Offer", "Low Wagering", "Featured"],
+    tags: ["Exclusive","Welcome Offer", "Low Wagering", "Featured"],
     rating: 4.5,
     terms: "18+. T&Cs apply.",
     wagering: "25x",
