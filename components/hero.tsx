@@ -1,13 +1,29 @@
 "use client";
 
+import { Bonus } from "@/lib/data";
 import { Button } from "@/components/ui/button";
-import { bonuses } from "@/lib/data";
-import { ArrowRight, Star, ShieldCheck, Zap, Trophy, Flame, Crown } from "lucide-react";
+import { ArrowRight, ShieldCheck, Zap, Crown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
-export function Hero() {
-  const featuredBonus = bonuses.find(b => b.tags.includes("Featured")) || bonuses[0];
+interface HeroProps {
+  bonuses: Bonus[];
+}
+
+export function Hero({ bonuses }: HeroProps) {
+  if (!bonuses || bonuses.length === 0) {
+    return (
+      <section className="relative w-full overflow-hidden bg-background pt-24 pb-8 lg:pt-32 lg:pb-12">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-2xl font-bold">No bonuses available at the moment.</h1>
+        </div>
+      </section>
+    );
+  }
+
+  // Select a random bonus for the hero section
+  // TODO: Once tags are added to the sheet, use: bonuses.find(b => b.tags?.includes("Featured")) || bonuses[0]
+  const featuredBonus = bonuses[Math.floor(Math.random() * bonuses.length)];
 
   return (
     <section className="relative w-full overflow-hidden bg-background pt-24 pb-8 lg:pt-32 lg:pb-12 transition-colors duration-300">
@@ -15,9 +31,9 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-1/4 h-80 w-80 rounded-full bg-purple-600/20 blur-[100px] animate-pulse dark:bg-purple-600/20 bg-purple-400/20" />
         <div className="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-indigo-600/20 blur-[100px] animate-pulse delay-1000 dark:bg-indigo-600/20 bg-indigo-400/20" />
-        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay" />
+        <div className="absolute inset-0  opacity-20 mix-blend-overlay" />
       </div>
-      
+
       {/* Bottom Fade Gradient for smooth transition */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-0 pointer-events-none" />
 
@@ -44,14 +60,17 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
-              <Button 
-                size="lg" 
+              <Button
+                asChild
+                size="lg"
                 className="h-10 min-w-[140px] rounded-full bg-foreground text-background hover:bg-foreground/90 font-bold text-sm transition-all hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.5)]"
               >
-                Claim Now
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <a href={featuredBonus.link} target="_blank" rel="noopener noreferrer">
+                  Claim Now
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
               </Button>
-              
+
               {featuredBonus.code && (
                 <div className="flex h-10 items-center rounded-full border border-foreground/10 bg-foreground/5 px-5 backdrop-blur-md transition-colors hover:bg-foreground/10 cursor-pointer group">
                   <span className="font-mono text-sm font-bold text-foreground tracking-widest group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
@@ -74,30 +93,24 @@ export function Hero() {
           </div>
 
           {/* Right Content - 3D Card */}
-          <div className="relative mx-auto w-full max-w-xs perspective-1000 lg:mx-0 lg:ml-auto">
+          <div className="hidden lg:block relative mx-auto w-full max-w-xs perspective-1000 lg:mx-0 lg:ml-auto">
             <div className="relative transform transition-all duration-500 hover:rotate-y-12 hover:rotate-x-12 preserve-3d">
               {/* Glow Behind */}
               <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-r from-purple-600 to-pink-600 opacity-20 dark:opacity-40 blur-2xl animate-pulse" />
-              
+
               {/* Main Card */}
               <div className="relative overflow-hidden rounded-[1.5rem] border border-foreground/10 bg-background/80 dark:bg-gray-900/80 p-5 backdrop-blur-xl shadow-2xl">
                 {/* Card Content */}
-                <div className="absolute top-0 right-0 p-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-yellow-400 to-orange-600 shadow-lg">
-                    <span className="font-bold text-black text-xs">{featuredBonus.rating}</span>
-                  </div>
-                </div>
-
-                <div className="mt-3 space-y-3">
-                  <div className="relative h-24 w-full overflow-hidden rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 p-0.5 shadow-lg shadow-purple-500/10">
-                     {/* Fallback gradient if image fails to load or is placeholder */}
-                     <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-black opacity-50" />
-                     <Image
-                        src={featuredBonus.image}
-                        alt={featuredBonus.title}
-                        fill
-                        className="object-cover transition-transform duration-700 hover:scale-110"
-                     />
+                <div className="space-y-3">
+                  <div className="relative h-32 w-full overflow-hidden rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 shadow-lg shadow-purple-500/10">
+                    {/* Fallback gradient if image fails to load or is placeholder */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-black opacity-50" />
+                    <Image
+                      src={featuredBonus.image}
+                      alt={featuredBonus.title}
+                      fill
+                      className="object-cover transition-transform duration-700 hover:scale-110"
+                    />
                   </div>
 
                   <div>

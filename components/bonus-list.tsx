@@ -8,11 +8,21 @@ interface BonusListProps {
 }
 
 export function BonusList({ bonuses }: BonusListProps) {
+  if (!bonuses || bonuses.length === 0) {
+    return (
+      <section className="space-y-8 py-4 bg-background transition-colors duration-300">
+        <div className="text-center text-muted-foreground">
+          <p>No bonuses available at the moment.</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section className="space-y-8 py-4 bg-background transition-colors duration-300">
+    <section className="space-y-4 py-4 bg-background transition-colors duration-300">
       <div className="grid gap-6">
         {bonuses.map((bonus) => (
-          <BonusCard key={bonus.id} bonus={bonus} />
+          <BonusCard key={bonus.id || `bonus-${bonus.title}`} bonus={bonus} />
         ))}
       </div>
     </section>

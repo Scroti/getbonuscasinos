@@ -1,0 +1,851 @@
+[00:00:02.644] Server  LOG      ✓ Ready in 1913ms
+[00:00:10.810] Server  LOG      ○ Compiling / ...
+[00:00:12.403] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:00:12.404] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:00:12.407] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:00:12.407] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:00:12.408] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:00:12.543] Server  ERROR   TypeError: fetch failed
+[00:00:13.813] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:13.813] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:13.813] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:16.160] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:03:37.083] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:03:37.084] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:03:37.084] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:03:37.084] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:03:37.085] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:03:37.150] Server  ERROR   TypeError: fetch failed
+[00:03:37.526] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:03:37.745] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <Home>
+                  <div className="min-h-scre...">
+                    <Header>
+                    <main className="space-y-0">
+                      <Hero bonuses={[...]}>
+                        <section className="relative w...">
+                          <div>
+                          <div>
+                          <div className="container ...">
+                            <div className="grid gap-6...">
+                              <div className="space-y-5 ...">
+                                <div>
+                                <h1>
+                                <p
+                                  className="mx-auto max-w-xl text-sm text-muted-foreground lg:mx-0 lg:text-base leadi..."
+                                >
++                                 {"1st Deposit:150% up to $1500  +50 FS\n2nd Deposit:50% up to $1000 +50 FS\n3rd De..."}
+-                                 {"1st Deposit:100% up to $3500  +100 FS\n2nd Deposit:100% up to $3000 +75 FS\n3rd ..."}
+                                ...
+                              ...
+                      ...
+              ...
+            ...
+
+[00:03:37.745] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:03:37.745] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:03:37.745] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:03:37.745] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:03:44.507] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:03:44.507] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:03:44.508] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:03:44.509] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:03:44.509] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:03:44.573] Server  ERROR   TypeError: fetch failed
+[00:03:44.979] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:03:45.168] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <Home>
+                  <div className="min-h-scre...">
+                    <Header>
+                    <main className="space-y-0">
+                      <Hero bonuses={[...]}>
+                        <section className="relative w...">
+                          <div>
+                          <div>
+                          <div className="container ...">
+                            <div className="grid gap-6...">
+                              <div className="space-y-5 ...">
+                                <div>
+                                <h1>
+                                <p
+                                  className="mx-auto max-w-xl text-sm text-muted-foreground lg:mx-0 lg:text-base leadi..."
+                                >
++                                 {"1st Deposit:100% up to $3500  +100 FS\n2nd Deposit:100% up to $3000 +75 FS\n3rd ..."}
+-                                 
+                                ...
+                              ...
+                      ...
+              ...
+            ...
+
+[00:03:45.168] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:03:45.168] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:03:45.168] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:03.636] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:04:03.636] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:04:03.637] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:04:03.637] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:04:03.637] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:04:03.703] Server  ERROR   TypeError: fetch failed
+[00:04:04.052] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:04:04.231] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <Home>
+                  <div className="min-h-scre...">
+                    <Header>
+                    <main className="space-y-0">
+                      <Hero bonuses={[...]}>
+                        <section className="relative w...">
+                          <div>
+                          <div>
+                          <div className="container ...">
+                            <div className="grid gap-6...">
+                              <div className="space-y-5 ...">
+                                <div>
+                                <h1>
+                                <p
+                                  className="mx-auto max-w-xl text-sm text-muted-foreground lg:mx-0 lg:text-base leadi..."
+                                >
++                                 {"1st Deposit:150% up to $1500  +50 FS\n2nd Deposit:50% up to $1000 +50 FS\n3rd De..."}
+-                                 
+                                ...
+                              ...
+                      ...
+              ...
+            ...
+
+[00:04:04.231] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:04.231] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:04.231] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:15.790] Server  LOG      ✓ Compiled in 163ms
+[00:04:23.088] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:04:23.089] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:04:23.090] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:04:23.090] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:04:23.091] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:04:23.428] Server  ERROR   TypeError: fetch failed
+[00:04:24.251] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <Home>
+                  <div className="min-h-scre...">
+                    <Header>
+                    <main className="space-y-0">
+                      <Hero bonuses={[...]}>
+                        <section className="relative w...">
+                          <div>
+                          <div>
+                          <div className="container ...">
+                            <div className="grid gap-6...">
+                              <div className="space-y-5 ...">
+                                <div>
+                                <h1>
+                                <p
+                                  className="mx-auto max-w-xl text-sm text-muted-foreground lg:mx-0 lg:text-base leadi..."
+                                >
++                                 
+-                                 {"1st Deposit:100% up to $3500  +100 FS\n2nd Deposit:100% up to $3000 +75 FS\n3rd ..."}
+                                ...
+                              ...
+                      ...
+              ...
+            ...
+
+[00:04:24.251] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:24.251] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:24.251] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:24.268] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:04:42.238] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:04:42.238] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:04:42.239] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:04:42.240] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:04:42.240] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:04:42.312] Server  ERROR   TypeError: fetch failed
+[00:04:42.599] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:04:42.743] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <Home>
+                  <div className="min-h-scre...">
+                    <Header>
+                    <main className="space-y-0">
+                      <Hero bonuses={[...]}>
+                        <section className="relative w...">
+                          <div>
+                          <div>
+                          <div className="container ...">
+                            <div className="grid gap-6...">
+                              <div className="space-y-5 ...">
+                                <div>
+                                <h1>
+                                <p
+                                  className="mx-auto max-w-xl text-sm text-muted-foreground lg:mx-0 lg:text-base leadi..."
+                                >
++                                 {"1st Deposit:100% up to $3500  +100 FS\n2nd Deposit:100% up to $3000 +75 FS\n3rd ..."}
+-                                 {"1st Deposit:150% up to $1500  +50 FS\n2nd Deposit:50% up to $1000 +50 FS\n3rd De..."}
+                                ...
+                              ...
+                      ...
+              ...
+            ...
+
+[00:04:42.743] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:42.743] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:42.743] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:58.663] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:04:58.663] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:04:58.664] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:04:58.665] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:04:58.665] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:04:58.733] Server  ERROR   TypeError: fetch failed
+[00:04:59.147] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:04:59.325] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <Home>
+                  <div className="min-h-scre...">
+                    <Header>
+                    <main className="space-y-0">
+                      <Hero bonuses={[...]}>
+                        <section className="relative w...">
+                          <div>
+                          <div>
+                          <div className="container ...">
+                            <div className="grid gap-6...">
+                              <div className="space-y-5 ...">
+                                <div>
+                                <h1>
+                                <p
+                                  className="mx-auto max-w-xl text-sm text-muted-foreground lg:mx-0 lg:text-base leadi..."
+                                >
++                                 {"1st Deposit:100% up to $3500  +100 FS\n2nd Deposit:100% up to $3000 +75 FS\n3rd ..."}
+-                                 
+                                ...
+                              ...
+                      ...
+              ...
+            ...
+
+[00:04:59.325] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:59.325] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:59.325] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:05:19.697] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:05:19.697] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:05:19.698] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:05:19.698] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:05:19.699] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:05:19.772] Server  ERROR   TypeError: fetch failed
+[00:05:20.065] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:05:20.220] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <Home>
+                  <div className="min-h-scre...">
+                    <Header>
+                    <main className="space-y-0">
+                      <Hero bonuses={[...]}>
+                        <section className="relative w...">
+                          <div>
+                          <div>
+                          <div className="container ...">
+                            <div className="grid gap-6...">
+                              <div className="space-y-5 ...">
+                                <div>
+                                <h1>
+                                <p
+                                  className="mx-auto max-w-xl text-sm text-muted-foreground lg:mx-0 lg:text-base leadi..."
+                                >
++                                 {"1st Deposit:150% up to $1500  +50 FS\n2nd Deposit:50% up to $1000 +50 FS\n3rd De..."}
+-                                 
+                                ...
+                              ...
+                      ...
+              ...
+            ...
+
+[00:05:20.220] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:05:20.220] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:05:20.220] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:05:21.136] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:05:21.136] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:05:21.137] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:05:21.137] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:05:21.137] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:05:21.212] Server  ERROR   TypeError: fetch failed
+[00:05:21.546] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:05:21.654] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:05:21.654] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:05:21.654] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:05:21.654] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:05:58.264] Server  LOG      ✓ Compiled in 223ms
+[00:06:08.702] Server  LOG      ✓ Compiled in 77ms
+[00:06:31.200] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:06:31.201] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:06:31.202] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:06:31.202] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:06:31.203] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:06:31.464] Server  ERROR   TypeError: fetch failed
+[00:06:32.203] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:06:32.218] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:06:32.316] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:06:32.316] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:08:41.714] Server  LOG      ✓ Compiled in 137ms
+[00:08:51.600] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:08:51.600] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:08:51.601] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:08:51.601] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:08:51.602] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:08:51.865] Server  ERROR   TypeError: fetch failed
+[00:08:52.614] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <Home>
+                  <div className="min-h-scre...">
+                    <Header>
+                    <main className="space-y-0">
+                      <Hero bonuses={[...]}>
+                        <section className="relative w...">
+                          <div>
+                          <div>
+                          <div className="container ...">
+                            <div className="grid gap-6...">
+                              <div className="space-y-5 ...">
+                                <div>
+                                <h1>
+                                <p
+                                  className="mx-auto max-w-xl text-sm text-muted-foreground lg:mx-0 lg:text-base leadi..."
+                                >
++                                 
+-                                 {"1st Deposit:150% up to $1500  +50 FS\n2nd Deposit:50% up to $1000 +50 FS\n3rd De..."}
+                                ...
+                              ...
+                      ...
+              ...
+            ...
+
+[00:08:52.614] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:08:52.614] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:08:52.614] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:08:52.637] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:08:54.042] Server  LOG      ✓ Compiled in 242ms
+[00:09:01.144] Server  LOG      ✓ Compiled in 89ms
+[00:09:20.282] Server  LOG      ✓ Compiled in 72ms
+[00:09:23.582] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:09:23.582] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:09:23.583] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:09:23.584] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:09:23.584] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:09:23.858] Server  ERROR   TypeError: fetch failed
+[00:09:24.528] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <Home>
+                  <div className="min-h-scre...">
+                    <Header>
+                    <main className="space-y-0">
+                      <Hero bonuses={[...]}>
+                        <section className="relative w...">
+                          <div>
+                          <div>
+                          <div className="container ...">
+                            <div className="grid gap-6...">
+                              <div className="space-y-5 ...">
+                                <div>
+                                <h1>
+                                <p
+                                  className="mx-auto max-w-xl text-sm text-muted-foreground lg:mx-0 lg:text-base leadi..."
+                                >
++                                 
+-                                 {"1st Deposit:100% up to $3500  +100 FS\n2nd Deposit:100% up to $3000 +75 FS\n3rd ..."}
+                                ...
+                              ...
+                      ...
+              ...
+            ...
+
+[00:09:24.528] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:09:24.528] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:09:24.528] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:09:24.549] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:09:25.406] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:09:25.407] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:09:25.408] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:09:25.408] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:09:25.408] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:09:25.482] Server  ERROR   TypeError: fetch failed
+[00:09:25.863] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:09:26.016] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <Home>
+                  <div className="min-h-scre...">
+                    <Header>
+                    <main className="space-y-0">
+                      <Hero bonuses={[...]}>
+                        <section className="relative w...">
+                          <div>
+                          <div>
+                          <div className="container ...">
+                            <div className="grid gap-6...">
+                              <div className="space-y-5 ...">
+                                <div>
+                                <h1>
+                                <p
+                                  className="mx-auto max-w-xl text-sm text-muted-foreground lg:mx-0 lg:text-base leadi..."
+                                >
++                                 
+-                                 {"1st Deposit:150% up to $1500  +50 FS\n2nd Deposit:50% up to $1000 +50 FS\n3rd De..."}
+                                ...
+                              ...
+                      ...
+              ...
+            ...
+
+[00:09:26.017] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:09:26.017] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:09:26.017] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:09:28.002] Server  LOG      ✓ Compiled in 56ms
+[00:09:30.424] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:09:30.424] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:09:30.425] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:09:30.425] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:09:30.426] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:09:30.664] Server  ERROR   TypeError: fetch failed
+[00:09:31.299] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <Home>
+                  <div className="min-h-scre...">
+                    <Header>
+                    <main className="space-y-0">
+                      <Hero bonuses={[...]}>
+                        <section className="relative w...">
+                          <div>
+                          <div>
+                          <div className="container ...">
+                            <div className="grid gap-6...">
+                              <div className="space-y-5 ...">
+                                <div>
+                                <h1>
+                                <p
+                                  className="mx-auto max-w-xl text-sm text-muted-foreground lg:mx-0 lg:text-base leadi..."
+                                >
++                                 {"1st Deposit:100% up to $3500  +100 FS\n2nd Deposit:100% up to $3000 +75 FS\n3rd ..."}
+-                                 {"1st Deposit:150% up to $1500  +50 FS\n2nd Deposit:50% up to $1000 +50 FS\n3rd De..."}
+                                ...
+                              ...
+                      ...
+              ...
+            ...
+
+[00:09:31.299] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:09:31.299] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:09:31.299] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:09:31.328] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:09:36.672] Server  LOG      ✓ Compiled in 87ms
+[00:09:39.376] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:09:39.377] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:09:39.378] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:09:39.378] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:09:39.378] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:09:39.599] Server  ERROR   TypeError: fetch failed
+[00:09:40.220] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:09:40.220] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:09:40.220] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:09:40.220] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:09:40.229] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:09:55.614] Server  LOG      ✓ Compiled in 48ms
+[00:10:02.972] Server  LOG      ✓ Compiled in 47ms
+[00:10:34.693] Server  LOG      ✓ Compiled in 58ms
+[00:10:44.424] Server  LOG      ✓ Compiled in 45ms
+[00:10:45.939] Server  LOG      ✓ Compiled in 125ms
+[00:10:47.742] Server  LOG      ✓ Compiled in 56ms
+[00:10:50.536] Server  LOG      ✓ Compiled in 53ms
+[00:10:54.641] Server  LOG      ✓ Compiled in 48ms
+[00:10:57.678] Server  LOG      ✓ Compiled in 80ms
+[00:11:19.536] Server  LOG      ✓ Compiled in 54ms
+[00:11:45.971] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:12:35.685] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:13:30.990] Server  LOG      ✓ Compiled in 104ms
+[00:13:36.012] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:13:36.013] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:13:36.014] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:13:36.015] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:13:36.015] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:13:36.266] Server  ERROR   TypeError: fetch failed
+[00:13:36.949] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:13:37.194] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:13:37.250] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <Home>
+                  <div className="min-h-scre...">
+                    <Header>
+                    <main className="space-y-0">
+                      <Hero bonuses={[...]}>
+                        <section className="relative w...">
+                          <div>
+                          <div>
+                          <div className="container ...">
+                            <div className="grid gap-6...">
+                              <div className="space-y-5 ...">
+                                <div>
+                                <h1>
+                                <p
+                                  className="mx-auto max-w-xl text-sm text-muted-foreground lg:mx-0 lg:text-base leadi..."
+                                >
++                                 {"1st Deposit:150% up to $1500  +50 FS\n2nd Deposit:50% up to $1000 +50 FS\n3rd De..."}
+-                                 {"1st Deposit:100% up to $3500  +100 FS\n2nd Deposit:100% up to $3000 +75 FS\n3rd ..."}
+                                ...
+                              ...
+                      ...
+              ...
+            ...
+
+[00:13:37.250] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:13:37.250] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:13:37.250] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:14:41.183] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:14:41.184] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:14:41.185] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:14:41.185] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:14:41.185] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:14:41.254] Server  ERROR   TypeError: fetch failed
+[00:14:41.600] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:14:41.763] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <Home>
+                  <div className="min-h-scre...">
+                    <Header>
+                    <main className="space-y-0">
+                      <Hero bonuses={[...]}>
+                        <section className="relative w...">
+                          <div>
+                          <div>
+                          <div className="container ...">
+                            <div className="grid gap-6...">
+                              <div className="space-y-5 ...">
+                                <div>
+                                <h1>
+                                <p
+                                  className="mx-auto max-w-xl text-sm text-muted-foreground lg:mx-0 lg:text-base leadi..."
+                                >
++                                 {"1st Deposit:150% up to $1500  +50 FS\n2nd Deposit:50% up to $1000 +50 FS\n3rd De..."}
+-                                 {"1st Deposit:100% up to $3500  +100 FS\n2nd Deposit:100% up to $3000 +75 FS\n3rd ..."}
+                                ...
+                              ...
+                      ...
+              ...
+            ...
+
+[00:14:41.763] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:14:41.763] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:14:41.763] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:14:46.844] Server  LOG      ✓ Compiled in 101ms
+[00:14:58.475] Server  LOG      ✓ Compiled in 43ms
+[00:16:11.281] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:16:11.281] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:16:11.282] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:16:11.282] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:16:11.283] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:27:37.992] Server  LOG      ✓ Compiled in 84ms
+[00:29:11.339] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:29:11.340] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:29:11.340] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:29:11.340] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:29:11.341] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:30:03.898] Server  LOG      ✓ Compiled in 66ms
+[00:30:11.560] Server  LOG      ✓ Compiled in 97ms
+[00:30:52.177] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:30:52.177] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:30:52.178] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:30:52.178] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:30:52.178] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:30:52.721] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:34:08.971] Server  LOG      ✓ Compiled in 235ms
+[00:34:39.256] Server  LOG      ✓ Compiled in 146ms
+[00:37:23.645] Server  LOG     📥 Raw data from backend: 4 bonuses received
+[00:37:23.646] Server  LOG     📊 Raw bonus sample: "{\n  \"brandName\": \"Realz\",\n  \"logo\": \"https://www.google.com/imgres?q=realz%20casino%20logo&imgurl=https%3A%2F%2Fwww.correctcasinos.com%2Fwp-content%2Fuploads%2F2025%2F11%2FRealz-Casino.jpg&imgrefurl=https%3A%2F%2Fwww.correctcasinos.com%2Frealz-casino-review%2F&docid=m1_8MbPnUtWHXM&tbnid=7webeo2U-dIBOM&vet=12ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA..i&w=500&h=500&hcb=2&itg=1&ved=2ahUKEwis6KPJ556RAxU5fPUHHZo4A80QM3oECBkQAA\",\n  \"welcomeBonus\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"bonusDetails\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"wager\": \"35x\",\n  \"minDeposit\": \"30$\",\n  \"trackingLink\": \"www.realz.com/au\"\n}"
+[00:37:23.646] Server  WARN    ⚠️ Bonus at index 2 missing description/bonusDetails
+[00:37:23.647] Server  LOG     ✅ Successfully processed 4 bonuses from backend API
+[00:37:23.647] Server  LOG     📊 Validated bonus sample: "{\n  \"id\": \"realz\",\n  \"title\": \"Casino Welcome Offer - 250% up to $4,000 + 150 FS\",\n  \"description\": \"1st Deposit:150% up to $1500  +50 FS\\n2nd Deposit:50% up to $1000 +50 FS\\n3rd Deposit:50% up to $1500 +50 FS.\",\n  \"link\": \"https://www.realz.com/au\",\n  \"image\": \"https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg\",\n  \"tags\": [],\n  \"rating\": 5,\n  \"terms\": \"18+. T&Cs apply.\",\n  \"wagering\": \"35x\",\n  \"minDeposit\": \"30$\"\n}"
+[00:37:23.874] Server  ERROR   TypeError: fetch failed
+[00:37:24.680] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
+[00:37:25.175] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <Home>
+                  <div className="min-h-scre...">
+                    <Header>
+                    <main className="space-y-0">
+                      <Hero bonuses={[...]}>
+                        <section className="relative w...">
+                          <div>
+                          <div>
+                          <div className="container ...">
+                            <div className="grid gap-6...">
+                              <div className="space-y-5 ...">
+                                <div>
+                                <h1>
+                                <p
+                                  className="mx-auto max-w-xl text-sm text-muted-foreground lg:mx-0 lg:text-base leadi..."
+                                >
++                                 {"1st Deposit:150% up to $1500  +50 FS\n2nd Deposit:50% up to $1000 +50 FS\n3rd De..."}
+-                                 {"1st Deposit:100% up to $3500  +100 FS\n2nd Deposit:100% up to $3000 +75 FS\n3rd ..."}
+                                ...
+                              ...
+                      ...
+              ...
+            ...
+
+[00:37:25.175] Browser WARN    Image with src "https://cdn.irishluck.ie/filters:format(webp)/fit-in/259x259/1756133916/jokery-jokery-casino-logo-logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:37:25.175] Browser WARN    Image with src "https://www.correctcasinos.com/wp-content/uploads/2025/11/Realz-Casino.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:37:25.175] Browser WARN    Image with src "https://www.playcasino.com/img/casinos/Casina-casino-logo_102_1223.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:37:25.192] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/placeholder.png" "received" null
