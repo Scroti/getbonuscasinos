@@ -29,6 +29,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  transpilePackages: ['@reduxjs/toolkit', 'react-redux'],
 };
 
 export default nextConfig;

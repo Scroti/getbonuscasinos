@@ -1,29 +1,28 @@
 "use client";
 
 import { Bonus } from "@/lib/data";
+import { BonusCard } from "@/components/bonus-card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ShieldCheck, Zap, Crown } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { BonusTags } from "@/components/bonus-tags";
 import Image from "next/image";
 
 interface HeroProps {
   bonuses: Bonus[];
+  featuredBonus: Bonus | null;
 }
 
-export function Hero({ bonuses }: HeroProps) {
-  if (!bonuses || bonuses.length === 0) {
+export function Hero({ bonuses, featuredBonus }: HeroProps) {
+  if (!bonuses || bonuses.length === 0 || !featuredBonus) {
     return (
       <section className="relative w-full overflow-hidden bg-background pt-24 pb-8 lg:pt-32 lg:pb-12">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-2xl font-bold">No bonuses available at the moment.</h1>
+          <h1 className="text-3xl font-bold text-foreground mb-3">No Bonuses Available</h1>
+          <p className="text-muted-foreground text-lg">We're currently updating our bonus offers. Please check back soon!</p>
         </div>
       </section>
     );
   }
-
-  // Select a random bonus for the hero section
-  // TODO: Once tags are added to the sheet, use: bonuses.find(b => b.tags?.includes("Featured")) || bonuses[0]
-  const featuredBonus = bonuses[Math.floor(Math.random() * bonuses.length)];
 
   return (
     <section className="relative w-full overflow-hidden bg-background pt-24 pb-8 lg:pt-32 lg:pb-12 transition-colors duration-300">
@@ -38,7 +37,77 @@ export function Hero({ bonuses }: HeroProps) {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-0 pointer-events-none" />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-6 lg:grid-cols-2 lg:items-center">
+        {/* Mobile: Show Text + Featured Bonus Card */}
+        <div className="md:hidden space-y-6">
+          {/* Hero Text */}
+          <div className="space-y-4 text-center">
+            <h1 className="text-3xl font-black leading-tight tracking-tighter text-foreground">
+              Unlock the <br />
+              <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 dark:from-purple-400 dark:via-pink-500 dark:to-red-500 bg-clip-text text-transparent">
+                Ultimate Bonuses
+              </span>
+            </h1>
+
+            <div className="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3 py-1 backdrop-blur-md">
+              <Crown className="mr-2 h-3.5 w-3.5 text-yellow-600 dark:text-yellow-500" />
+              <span className="text-[10px] font-bold text-yellow-600 dark:text-yellow-500 uppercase tracking-wider">
+                Exclusive VIP Offer
+              </span>
+            </div>
+          </div>
+
+          {/* Featured Bonus Card - Special Styling */}
+          <div className="relative">
+            {/* Glow Effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 rounded-lg opacity-20 blur-sm animate-pulse" />
+            
+            {/* Card with special styling */}
+            <div className="relative bg-card/95 backdrop-blur-xl rounded-lg shadow-2xl overflow-hidden">
+              <div className="flex flex-row h-32">
+                {/* Image Section */}
+                <div className="relative w-32 h-32 shrink-0 border-r border-purple-500/20 bg-gradient-to-br from-purple-500/10 to-pink-500/10 overflow-hidden">
+                  <Image
+                    src={featuredBonus.image}
+                    alt={featuredBonus.title}
+                    fill
+                    className="object-contain p-3"
+                    sizes="128px"
+                  />
+                  {featuredBonus.exclusive && (
+                    <div className="absolute top-2 left-2 z-20">
+                      <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full">
+                        EXCLUSIVE
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Content Section */}
+                <div className="flex flex-1 flex-col justify-between p-3 h-full overflow-hidden">
+                  <div className="space-y-1">
+                    <h3 className="text-xs font-bold text-foreground leading-tight uppercase tracking-wide line-clamp-1">
+                      {featuredBonus.title}
+                    </h3>
+                    {/* Tags */}
+                    <BonusTags tags={featuredBonus.tags || []} exclusive={featuredBonus.exclusive} />
+                    <p className="text-[9px] text-muted-foreground leading-snug line-clamp-2">
+                      {featuredBonus.description}
+                    </p>
+                  </div>
+
+                  <Button asChild className="h-6 text-[9px] px-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 font-bold transition-all hover:scale-105">
+                    <a href={featuredBonus.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                      Get Bonus <ArrowRight className="ml-1 h-2.5 w-2.5" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop: Show Original Text Layout */}
+        <div className="hidden md:grid gap-6 lg:grid-cols-2 lg:items-center">
           {/* Left Content */}
           <div className="space-y-5 text-center lg:text-left">
             <div className="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3 py-1 backdrop-blur-md">
@@ -51,7 +120,7 @@ export function Hero({ bonuses }: HeroProps) {
             <h1 className="text-3xl font-black leading-tight tracking-tighter text-foreground sm:text-4xl lg:text-5xl">
               Unlock the <br />
               <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 dark:from-purple-400 dark:via-pink-500 dark:to-red-500 bg-clip-text text-transparent">
-                Ultimate Bonus
+                Ultimate Bonuses
               </span>
             </h1>
 

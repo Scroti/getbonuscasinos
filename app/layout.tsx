@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Footer } from "@/components/footer";
 import { NewsletterFeature } from "@/components/newsletter-feature";
+import StoreProvider from "@/components/providers/store-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,16 +37,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-          <NewsletterFeature />
-          <Footer />
-        </ThemeProvider>
+        <StoreProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+            <NewsletterFeature />
+            <Footer />
+          </ThemeProvider>
+        </StoreProvider>
       </body>
     </html>
   );

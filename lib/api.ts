@@ -1,16 +1,23 @@
-import { Bonus, bonuses as fallbackBonuses } from './data';
+import { Bonus } from './data';
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || process.env.BACKEND_URL;
 
 /**
+ * Checks if a bonus is "working" (has valid link and title)
+ */
+function isWorkingBonus(bonus: Bonus): boolean {
+  return !!(bonus.title && bonus.link && bonus.link !== '#' && bonus.link.startsWith('http'));
+}
+
+/**
  * Fetches bonuses from the backend API
- * Falls back to static data if API call fails
+ * Returns empty array if no bonuses are available
  */
 export async function getBonuses(): Promise<Bonus[]> {
-  // If no backend URL is configured, use fallback data
+  // If no backend URL is configured, return empty array (no bonuses)
   if (!BACKEND_URL) {
-    console.warn('⚠️ BACKEND_URL not configured, using fallback data');
-    return fallbackBonuses;
+    console.warn('⚠️ BACKEND_URL not configured');
+    return [];
   }
 
   try {
@@ -31,8 +38,8 @@ export async function getBonuses(): Promise<Bonus[]> {
     console.log('📊 Raw bonus sample:', JSON.stringify(rawBonuses[0], null, 2));
     
     if (!rawBonuses || rawBonuses.length === 0) {
-      console.warn('No bonuses returned from API, using fallback data');
-      return fallbackBonuses;
+      console.warn('No bonuses returned from API');
+      return [];
     }
 
     // Map backend fields to frontend structure
@@ -108,13 +115,21 @@ export async function getBonuses(): Promise<Bonus[]> {
       return normalized;
     });
 
-    console.log(`✅ Successfully processed ${validatedBonuses.length} bonuses from backend API`);
-    console.log('📊 Validated bonus sample:', JSON.stringify(validatedBonuses[0], null, 2));
-    return validatedBonuses;
+    // Filter to only return working bonuses from backend
+    const workingBackendBonuses = validatedBonuses.filter(isWorkingBonus);
+    
+    if (workingBackendBonuses.length === 0) {
+      console.warn('No working bonuses returned from backend API');
+      return [];
+    }
+
+    console.log(`✅ Successfully processed ${workingBackendBonuses.length} working bonuses from backend API`);
+    console.log('📊 Validated bonus sample:', JSON.stringify(workingBackendBonuses[0], null, 2));
+    return workingBackendBonuses;
   } catch (error) {
     console.error('❌ Error fetching bonuses from backend API:', error);
-    console.warn('Falling back to static data');
-    return fallbackBonuses;
+    console.warn('No bonuses available');
+    return [];
   }
 }
 
