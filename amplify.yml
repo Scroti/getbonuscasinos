@@ -7,16 +7,6 @@ frontend:
     build:
       commands:
         - npm run build
-    postBuild:
-      commands:
-        - |
-          if [ -f .next/required-server-files.json ]; then
-            echo "✓ required-server-files.json found"
-            ls -la .next/required-server-files.json
-          else
-            echo "⚠ required-server-files.json not found, listing .next directory:"
-            ls -la .next/ | head -20
-          fi
   artifacts:
     baseDirectory: .
     files:
