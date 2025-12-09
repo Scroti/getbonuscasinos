@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'standalone', // Critical for Amplify SSR support
+  output: 'standalone', // Required for Amplify SSR
   images: {
     remotePatterns: [
       {
