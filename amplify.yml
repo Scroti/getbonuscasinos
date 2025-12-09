@@ -10,13 +10,11 @@ frontend:
     postBuild:
       commands:
         - |
-          echo "=== Verifying Next.js standalone build ==="
+          echo "=== Verifying Next.js build output ==="
           
-          # Check and copy required-server-files.json
+          # Check required-server-files.json (should be in .next/)
           if [ -f .next/required-server-files.json ]; then
-            echo "✓ Found .next/required-server-files.json"
-            cp .next/required-server-files.json ./required-server-files.json
-            echo "✓ Copied to root directory"
+            echo "✓ Found required-server-files.json"
           else
             echo "⚠ WARNING: required-server-files.json not found"
           fi
@@ -24,8 +22,6 @@ frontend:
           # Verify standalone structure
           if [ -d .next/standalone ]; then
             echo "✓ Standalone directory exists"
-            echo "Standalone structure:"
-            ls -la .next/standalone/ | head -15
           else
             echo "⚠ WARNING: Standalone directory not found"
           fi
@@ -35,13 +31,13 @@ frontend:
             echo "✓ Static directory exists"
           fi
           
-          # List key files in root
-          echo "=== Root directory files ==="
-          ls -la | grep -E "(required-server|package|next.config)" || ls -la | head -10
+          # List .next directory structure
+          echo "=== .next directory structure ==="
+          ls -la .next/ | head -15
           
           echo "=== Build verification complete ==="
   artifacts:
-    baseDirectory: .
+    baseDirectory: .next
     files:
       - '**/*'
   cache:
