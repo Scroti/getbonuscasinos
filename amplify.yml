@@ -7,13 +7,18 @@ frontend:
     build:
       commands:
         - npm run build
+    postBuild:
+      commands:
         - |
           echo "Verifying build output..."
           if [ -f .next/required-server-files.json ]; then
-            echo "✓ required-server-files.json exists"
-            cat .next/required-server-files.json | head -5
+            echo "✓ required-server-files.json exists in .next/"
+            # Copy to root for Amplify to find it
+            cp .next/required-server-files.json ./required-server-files.json
+            echo "✓ Copied required-server-files.json to root"
+            ls -la required-server-files.json
           else
-            echo "⚠ required-server-files.json not found"
+            echo "⚠ required-server-files.json not found in .next/"
             echo "Build output structure:"
             ls -la .next/ | head -10
           fi
