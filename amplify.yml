@@ -7,6 +7,16 @@ frontend:
     build:
       commands:
         - npm run build
+        - |
+          echo "Verifying build output..."
+          if [ -f .next/required-server-files.json ]; then
+            echo "✓ required-server-files.json exists"
+            cat .next/required-server-files.json | head -5
+          else
+            echo "⚠ required-server-files.json not found"
+            echo "Build output structure:"
+            ls -la .next/ | head -10
+          fi
   artifacts:
     baseDirectory: .
     files:
