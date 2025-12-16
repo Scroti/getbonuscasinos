@@ -25,23 +25,18 @@ export function BonusCard({ bonus }: BonusCardProps) {
             className="object-contain md:object-fill p-2 sm:p-3 md:p-4 transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 768px) 128px, 240px"
           />
-          
-          {/* Tags overlay on image */}
-          <div className="absolute top-2 left-2 z-20">
-            <BonusTags tags={bonus.tags || []} exclusive={bonus.exclusive} />
-          </div>
         </div>
 
         {/* Right Section - Content */}
         <div className="flex flex-1 flex-col justify-between bg-card p-2 sm:p-3 md:p-5 h-full overflow-hidden">
-          <div className="space-y-1 sm:space-y-2">
+          <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
             {/* Title */}
             <h3 className="text-xs sm:text-sm md:text-lg font-bold text-foreground leading-tight uppercase tracking-wide line-clamp-1 md:line-clamp-2">
               {bonus.title}
             </h3>
 
-            {/* Tags - Desktop only */}
-            <div className="hidden md:block">
+            {/* Tags - Show on all screen sizes, below title */}
+            <div className="flex-shrink-0">
               <BonusTags tags={bonus.tags || []} exclusive={bonus.exclusive} />
             </div>
 
@@ -85,16 +80,16 @@ export function BonusCard({ bonus }: BonusCardProps) {
           </div>
 
           {/* Bottom Actions */}
-          <div className="mt-2 sm:mt-4 flex flex-col gap-1.5 sm:gap-3 sm:flex-row sm:items-center sm:justify-end pt-2 sm:pt-4 border-t border-foreground/10">
+          <div className="mt-auto pt-3 sm:pt-4 md:pt-5 flex flex-col gap-2 sm:gap-3 sm:flex-row sm:items-center sm:justify-end border-t border-foreground/10">
             {bonus.code && (
-              <div className="flex items-center justify-between rounded-lg border border-dashed border-foreground/30 bg-foreground/5 dark:bg-foreground/10 px-2 py-1.5 sm:px-4 sm:py-2.5 font-mono text-[10px] sm:text-sm text-muted-foreground transition-colors hover:border-purple-500/50 hover:text-purple-600 dark:hover:text-purple-400 cursor-pointer group/code w-full sm:w-auto">
+              <div className="flex items-center justify-between rounded-lg border border-dashed border-foreground/30 bg-foreground/5 dark:bg-foreground/10 px-3 py-2 sm:px-4 sm:py-2.5 font-mono text-[10px] sm:text-sm text-muted-foreground transition-colors hover:border-purple-500/50 hover:text-purple-600 dark:hover:text-purple-400 cursor-pointer group/code w-full sm:w-auto">
                 <span className="font-bold tracking-wider">{bonus.code}</span>
                 <Copy className="ml-2 sm:ml-3 h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 opacity-50 group-hover/code:opacity-100 transition-opacity" />
               </div>
             )}
-            <Button asChild className="w-full sm:w-auto h-6 sm:h-10 text-[9px] sm:text-sm md:text-base bg-foreground text-background hover:bg-foreground/90 font-bold transition-all hover:scale-105">
+            <Button asChild className="w-full sm:w-auto h-8 sm:h-10 md:h-11 text-[10px] sm:text-sm md:text-base bg-foreground text-background hover:bg-foreground/90 font-bold transition-all hover:scale-105 px-4 sm:px-6">
               <a href={bonus.link} target="_blank" rel="noopener noreferrer">
-                Get Bonus <ArrowRight className="ml-1 sm:ml-2 h-2.5 w-2.5 sm:h-4 sm:w-4" />
+                Get Bonus <ArrowRight className="ml-1.5 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4" />
               </a>
             </Button>
           </div>
