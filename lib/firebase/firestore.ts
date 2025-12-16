@@ -1,6 +1,7 @@
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from './config';
 import { Bonus } from '../data';
+import { processImageUrl } from '../utils/image-utils';
 
 const COLLECTION_NAME = 'bonuses';
 
@@ -30,38 +31,8 @@ export async function getBonusesFromFirestore(): Promise<Bonus[]> {
             .filter((tag: string) => tag.length > 0)
         : [];
 
-      // Extract image URL from Google redirect if needed
-      let imageUrl = data.logo || data.image || '/placeholder.png';
-      
-      // Handle Google redirect URLs
-      if (imageUrl && imageUrl.includes('www.google.com')) {
-        try {
-          const url = new URL(imageUrl);
-          const urlParam = url.searchParams.get('url');
-          if (urlParam) {
-            imageUrl = decodeURIComponent(urlParam);
-            if (imageUrl.includes('casinobankingmethods.com')) {
-              imageUrl = '/placeholder.png';
-            }
-          }
-        } catch (e) {
-          console.error('Error parsing Google redirect URL:', e);
-          imageUrl = '/placeholder.png';
-        }
-      }
-
-      // Handle imgurl parameter
-      if (imageUrl && imageUrl.includes('imgurl=')) {
-        try {
-          const urlParams = new URLSearchParams(new URL(imageUrl).search);
-          const imgUrl = urlParams.get('imgurl');
-          if (imgUrl) {
-            imageUrl = decodeURIComponent(imgUrl);
-          }
-        } catch (e) {
-          console.error('Error parsing image URL:', e);
-        }
-      }
+      // Process image URL (handles Google Drive, redirects, etc.)
+      const imageUrl = processImageUrl(data.logo || data.image || '/placeholder.png');
 
       // Ensure tracking link has protocol
       let trackingLink = data.trackingLink || data.link || '#';
