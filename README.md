@@ -2,19 +2,20 @@ This is a [Next.js](https://nextjs.org) project for displaying casino bonus info
 
 ## Getting Started
 
-### 1. Configure Backend URL
+### 1. Configure Firebase
 
-Create a `.env.local` file in the root directory:
-
-```env
-BACKEND_URL=http://localhost:3001
-```
-
-Or if you need it accessible in the browser:
+Create a `.env.local` file in the root directory with your Firebase configuration:
 
 ```env
-NEXT_PUBLIC_BACKEND_URL=http://localhost:3001
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project_id.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project_id.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 ```
+
+You can find these values in your Firebase Console under Project Settings > General > Your apps.
 
 ### 2. Start the Development Server
 
@@ -30,7 +31,7 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-**Note:** The app will fetch bonuses from `BACKEND_URL/bonuses`. If the backend is unavailable, it will fall back to static data.
+**Note:** The app fetches bonuses directly from Firestore. Make sure your Firebase project has a `bonuses` collection with the appropriate data structure.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
