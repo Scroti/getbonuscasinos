@@ -10,7 +10,8 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog"
-import { Sparkles } from "lucide-react"
+import { Sparkles, CheckCircle2, AlertCircle } from "lucide-react"
+import { subscribeToNewsletter } from "@/lib/firebase/newsletter"
 
 interface NewsletterModalProps {
   isOpen: boolean
@@ -19,13 +20,59 @@ interface NewsletterModalProps {
 
 export function NewsletterModal({ isOpen, onClose }: NewsletterModalProps) {
   const [email, setEmail] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [status, setStatus] = useState<{
+    type: 'success' | 'error' | 'already-subscribed' | null;
+    message: string;
+  }>({ type: null, message: '' })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Subscribing from modal:", email)
-    setEmail("")
-    onClose()
-    alert("Welcome to the club! Check your email for your bonus.")
+    setIsSubmitting(true)
+    setStatus({ type: null, message: '' })
+
+    try {
+      // Get user profile data before subscribing
+      const { getUserProfileData } = await import('@/lib/firebase/newsletter')
+      const profileData = await getUserProfileData()
+      
+      const result = await subscribeToNewsletter(email, profileData)
+      
+      if (result.alreadySubscribed) {
+        setStatus({
+          type: 'already-subscribed',
+          message: 'This email is already subscribed! Thank you for your interest.',
+        })
+        // Clear email after showing message
+        setTimeout(() => {
+          setEmail("")
+          setStatus({ type: null, message: '' })
+        }, 3000)
+      } else if (result.success) {
+        setStatus({
+          type: 'success',
+          message: 'Welcome to the club! Check your email for your bonus.',
+        })
+        setEmail("")
+        // Close modal after success
+        setTimeout(() => {
+          onClose()
+          setStatus({ type: null, message: '' })
+        }, 2000)
+      } else {
+        setStatus({
+          type: 'error',
+          message: result.error || 'Something went wrong. Please try again.',
+        })
+      }
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: 'Failed to subscribe. Please try again later.',
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -58,15 +105,33 @@ export function NewsletterModal({ isOpen, onClose }: NewsletterModalProps) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              disabled={isSubmitting}
               className="bg-foreground/5 border-foreground/10 h-12 text-base focus-visible:ring-purple-500"
             />
             <Button 
               type="submit" 
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white font-bold h-12 px-8 transition-all hover:scale-105 hover:shadow-lg"
+              disabled={isSubmitting}
+              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white font-bold h-12 px-8 transition-all hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Subscribe
+              {isSubmitting ? 'Subscribing...' : 'Subscribe'}
             </Button>
           </form>
+
+          {/* Status Messages */}
+          {status.type && (
+            <div className={`mt-4 p-3 rounded-lg flex items-center gap-2 text-sm relative z-10 ${
+              status.type === 'success' 
+                ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20'
+                : status.type === 'already-subscribed'
+                ? 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20'
+                : 'bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20'
+            }`}>
+              {status.type === 'success' && <CheckCircle2 className="h-4 w-4 flex-shrink-0" />}
+              {status.type === 'already-subscribed' && <AlertCircle className="h-4 w-4 flex-shrink-0" />}
+              {status.type === 'error' && <AlertCircle className="h-4 w-4 flex-shrink-0" />}
+              <span>{status.message}</span>
+            </div>
+          )}
 
           <p className="text-xs text-muted-foreground mt-6 relative z-10">
             100% free. Unsubscribe at any time. We respect your privacy.

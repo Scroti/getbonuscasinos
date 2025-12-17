@@ -22,7 +22,7 @@ export function BonusCard({ bonus }: BonusCardProps) {
             src={bonus.image}
             alt={`${bonus.title} logo`}
             fill
-            className="object-contain md:object-fill p-2 sm:p-3 md:p-4 transition-transform duration-500 group-hover:scale-105"
+            className="object-contain md:object-fill transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 768px) 128px, 240px"
           />
         </div>

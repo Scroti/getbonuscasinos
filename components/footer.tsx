@@ -3,18 +3,62 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Facebook, Instagram, Twitter, Send } from "lucide-react"
+import { Facebook, Instagram, Twitter, Send, CheckCircle2, AlertCircle } from "lucide-react"
 import { Logo } from "@/components/logo"
+import { subscribeToNewsletter } from "@/lib/firebase/newsletter"
 
 export function Footer() {
   const [email, setEmail] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [status, setStatus] = useState<{
+    type: 'success' | 'error' | 'already-subscribed' | null;
+    message: string;
+  }>({ type: null, message: '' })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle subscription logic here (e.g., API call)
-    console.log("Subscribing:", email)
-    setEmail("")
-    alert("Thanks for subscribing!")
+    setIsSubmitting(true)
+    setStatus({ type: null, message: '' })
+
+    try {
+      // Get user profile data before subscribing
+      const { getUserProfileData } = await import('@/lib/firebase/newsletter')
+      const profileData = await getUserProfileData()
+      
+      const result = await subscribeToNewsletter(email, profileData)
+      
+      if (result.alreadySubscribed) {
+        setStatus({
+          type: 'already-subscribed',
+          message: 'This email is already subscribed!',
+        })
+        setTimeout(() => {
+          setEmail("")
+          setStatus({ type: null, message: '' })
+        }, 3000)
+      } else if (result.success) {
+        setStatus({
+          type: 'success',
+          message: 'Thanks for subscribing!',
+        })
+        setEmail("")
+        setTimeout(() => {
+          setStatus({ type: null, message: '' })
+        }, 3000)
+      } else {
+        setStatus({
+          type: 'error',
+          message: result.error || 'Something went wrong. Please try again.',
+        })
+      }
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: 'Failed to subscribe. Please try again later.',
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -84,17 +128,36 @@ export function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-input bg-background ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:border-input transition-all text-sm shadow-sm"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-lg border border-input bg-background ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:border-input transition-all text-sm shadow-sm disabled:opacity-50"
                 />
                 <Button
                   type="submit"
                   size="icon"
-                  className="absolute right-1.5 top-1.5 h-9 w-9 rounded-md bg-primary hover:bg-primary/90"
+                  disabled={isSubmitting}
+                  className="absolute right-1.5 top-1.5 h-9 w-9 rounded-md bg-primary hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send className="h-4 w-4" />
                   <span className="sr-only">Subscribe</span>
                 </Button>
               </div>
+              
+              {/* Status Messages */}
+              {status.type && (
+                <div className={`p-2 rounded-lg flex items-center gap-2 text-xs ${
+                  status.type === 'success' 
+                    ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20'
+                    : status.type === 'already-subscribed'
+                    ? 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20'
+                    : 'bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20'
+                }`}>
+                  {status.type === 'success' && <CheckCircle2 className="h-3 w-3 flex-shrink-0" />}
+                  {status.type === 'already-subscribed' && <AlertCircle className="h-3 w-3 flex-shrink-0" />}
+                  {status.type === 'error' && <AlertCircle className="h-3 w-3 flex-shrink-0" />}
+                  <span>{status.message}</span>
+                </div>
+              )}
+              
               <p className="text-xs text-muted-foreground">
                 We respect your privacy. Unsubscribe at any time.
               </p>

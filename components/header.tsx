@@ -43,7 +43,6 @@ export function Header() {
 
         {/* Right side */}
         <div className="flex items-center gap-2 sm:gap-4">
-          <ThemeToggle />
 
           <Link href="/contact">
             <Button
