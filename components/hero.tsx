@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ShieldCheck, Zap, Crown } from "lucide-react";
 import { BonusTags } from "@/components/bonus-tags";
 import Image from "next/image";
+import { formatTextWithBreaks } from "@/lib/utils/format-text";
 
 interface HeroProps {
   bonuses: Bonus[];
@@ -56,54 +57,8 @@ export function Hero({ bonuses, featuredBonus }: HeroProps) {
             </div>
           </div>
 
-          {/* Featured Bonus Card - Special Styling */}
-          <div className="relative">
-            {/* Glow Effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 rounded-lg opacity-20 blur-sm animate-pulse" />
-            
-            {/* Card with special styling */}
-            <div className="relative bg-card/95 backdrop-blur-xl rounded-lg shadow-2xl overflow-hidden">
-              <div className="flex flex-row h-32">
-                {/* Image Section */}
-                <div className="relative w-32 h-32 shrink-0 border-r border-purple-500/20 bg-gradient-to-br from-purple-500/10 to-pink-500/10 overflow-hidden">
-                  <Image
-                    src={featuredBonus.image}
-                    alt={featuredBonus.title}
-                    fill
-                    className="object-contain p-3"
-                    sizes="128px"
-                  />
-                  {featuredBonus.exclusive && (
-                    <div className="absolute top-2 left-2 z-20">
-                      <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full">
-                        EXCLUSIVE
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Content Section */}
-                <div className="flex flex-1 flex-col justify-between p-3 h-full overflow-hidden">
-                  <div className="space-y-1">
-                    <h3 className="text-xs font-bold text-foreground leading-tight uppercase tracking-wide line-clamp-1">
-                      {featuredBonus.title}
-                    </h3>
-                    {/* Tags */}
-                    <BonusTags tags={featuredBonus.tags || []} exclusive={featuredBonus.exclusive} />
-                    <p className="text-[9px] text-muted-foreground leading-snug line-clamp-2">
-                      {featuredBonus.description}
-                    </p>
-                  </div>
-
-                  <Button asChild className="h-6 text-[9px] px-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 font-bold transition-all hover:scale-105">
-                    <a href={featuredBonus.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
-                      Get Bonus <ArrowRight className="ml-1 h-2.5 w-2.5" />
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Featured Bonus Card - Use BonusCard component */}
+          <BonusCard bonus={featuredBonus} />
         </div>
 
         {/* Desktop: Show Original Text Layout */}
@@ -124,9 +79,9 @@ export function Hero({ bonuses, featuredBonus }: HeroProps) {
               </span>
             </h1>
 
-            <p className="mx-auto max-w-xl text-sm text-muted-foreground lg:mx-0 lg:text-base leading-relaxed">
-              {featuredBonus.description}
-            </p>
+            <div className="mx-auto max-w-xl text-sm text-muted-foreground lg:mx-0 lg:text-base leading-relaxed whitespace-pre-line">
+              {formatTextWithBreaks(featuredBonus.description)}
+            </div>
 
             <div className="flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
               <Button

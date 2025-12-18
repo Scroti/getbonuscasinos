@@ -1,4 +1,4 @@
-import { collection, addDoc, query, where, getDocs, serverTimestamp } from 'firebase/firestore';
+import { collection, addDoc, query, where, getDocs, serverTimestamp, deleteDoc } from 'firebase/firestore';
 import { db } from './config';
 
 const COLLECTION_NAME = 'newsletter_subscribers';
@@ -103,6 +103,38 @@ export async function getUserProfileData(): Promise<UserProfileData> {
   }
 
   return profileData;
+}
+
+/**
+ * Unsubscribes an email from the newsletter by deleting it from Firestore
+ * Returns 'success' if unsubscribed, 'not-found' if email not found, or 'error' on failure
+ */
+export async function unsubscribeFromNewsletter(email: string): Promise<'success' | 'not-found' | 'error'> {
+  try {
+    const normalizedEmail = email.toLowerCase().trim();
+
+    // Find the document(s) with this email
+    const q = query(
+      collection(db, COLLECTION_NAME),
+      where('email', '==', normalizedEmail)
+    );
+    const snapshot = await getDocs(q);
+
+    if (snapshot.empty) {
+      console.log(`Email '${normalizedEmail}' not found in subscribers.`);
+      return 'not-found';
+    }
+
+    // Delete all documents with this email (should only be one, but handle multiple)
+    const deletePromises = snapshot.docs.map(doc => deleteDoc(doc.ref));
+    await Promise.all(deletePromises);
+
+    console.log(`Email '${normalizedEmail}' unsubscribed successfully.`);
+    return 'success';
+  } catch (error) {
+    console.error('Error unsubscribing from newsletter:', error);
+    return 'error';
+  }
 }
 
 /**
