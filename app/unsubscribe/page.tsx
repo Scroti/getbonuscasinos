@@ -108,13 +108,10 @@ export default function UnsubscribePage() {
 
                 {message && (
                   <div className={`p-3 rounded-lg flex items-start gap-2 text-sm ${
-                    status === 'success'
-                      ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20'
-                      : status === 'not-found'
+                    status === 'not-found'
                       ? 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20'
                       : 'bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20'
                   }`}>
-                    {status === 'success' && <CheckCircle2 className="h-4 w-4 flex-shrink-0 mt-0.5" />}
                     {status === 'not-found' && <Mail className="h-4 w-4 flex-shrink-0 mt-0.5" />}
                     {status === 'error' && <XCircle className="h-4 w-4 flex-shrink-0 mt-0.5" />}
                     <span>{message}</span>
