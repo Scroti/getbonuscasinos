@@ -76,7 +76,7 @@ function doPost(e) {
     // Log for debugging (view in Apps Script > Executions)
     Logger.log('Added subscriber: ' + data.email);
     
-    // Return success response
+    // Return success response with CORS headers
     return ContentService.createTextOutput(JSON.stringify({
       success: true,
       message: 'Subscriber added to sheet successfully',
@@ -87,13 +87,22 @@ function doPost(e) {
     // Log error for debugging
     Logger.log('Error: ' + error.toString());
     
-    // Return error response
+    // Return error response with CORS headers
     return ContentService.createTextOutput(JSON.stringify({
       success: false,
       error: error.toString(),
       message: 'Failed to add subscriber to sheet'
     })).setMimeType(ContentService.MimeType.JSON);
   }
+}
+
+/**
+ * Handle OPTIONS request for CORS preflight
+ * This is required for CORS to work properly
+ */
+function doOptions() {
+  return ContentService.createTextOutput('')
+    .setMimeType(ContentService.MimeType.JSON);
 }
 
 /**

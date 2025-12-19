@@ -178,10 +178,12 @@ export async function subscribeToNewsletter(
     });
 
     // Call Google Sheets webhook if configured (fire and forget - don't block)
+    // Use our API route to avoid CORS issues
     const webhookUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_WEBHOOK_URL;
     if (webhookUrl) {
-      // Use fetch in a non-blocking way
-      fetch(webhookUrl, {
+      // Call our Next.js API route which will then call the Google Sheets webhook
+      // This avoids CORS issues by calling from the server
+      fetch('/api/webhook/sheets', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
