@@ -171,11 +171,39 @@ export async function subscribeToNewsletter(
     const userProfile = profileData || await getUserProfileData();
 
     // Add new subscriber with profile data
-    await addDoc(collection(db, COLLECTION_NAME), {
+    const docRef = await addDoc(collection(db, COLLECTION_NAME), {
       email: normalizedEmail,
       subscribedAt: serverTimestamp(),
       ...userProfile, // Spread all profile data
     });
+
+    // Call Google Sheets webhook if configured (fire and forget - don't block)
+    const webhookUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_WEBHOOK_URL;
+    if (webhookUrl) {
+      // Use fetch in a non-blocking way
+      fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: normalizedEmail,
+          subscribedAt: new Date().toISOString(),
+          country: userProfile.country,
+          countryCode: userProfile.countryCode,
+          timezone: userProfile.timezone,
+          language: userProfile.language,
+          deviceType: userProfile.deviceType,
+          screenResolution: userProfile.screenResolution,
+          referrer: userProfile.referrer,
+          userAgent: userProfile.userAgent,
+          documentId: docRef.id,
+        }),
+      }).catch(error => {
+        console.warn('Failed to sync to Google Sheets (non-critical):', error);
+        // Don't fail the subscription if webhook fails
+      });
+    }
 
     return {
       success: true,

@@ -26,8 +26,15 @@ export const bonusesApi = createApi({
             return { data: [] };
           }
 
-          console.log(`✅ Successfully processed ${workingBonuses.length} working bonuses from Firestore`);
-          return { data: workingBonuses };
+          // Sort bonuses by ID
+          const sortedBonuses = workingBonuses.sort((a, b) => {
+            if (!a.id) return 1;
+            if (!b.id) return -1;
+            return a.id.localeCompare(b.id);
+          });
+
+          console.log(`✅ Successfully processed ${sortedBonuses.length} working bonuses from Firestore`);
+          return { data: sortedBonuses };
         } catch (error) {
           console.error('❌ Error fetching bonuses from Firestore:', error);
           return { data: [] };
