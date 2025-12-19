@@ -58,7 +58,7 @@ export function BonusCard({ bonus, featured = false }: BonusCardProps) {
             {/* Main Bonus Offer */}
             {mainOffer && (
               <div className="space-y-1">
-                <div className="text-[10px] sm:text-xs md:text-sm font-bold text-foreground leading-tight whitespace-pre-line">
+                <div className="text-[10px] sm:text-xs md:text-sm text-foreground leading-tight whitespace-pre-line">
                   {formatTextWithBreaks(mainOffer)}
                 </div>
                 

@@ -39,13 +39,23 @@ export function BonusesContainer() {
     );
   }
 
+  // Determine featured bonus: check for "featured" tag (case-insensitive), otherwise use first bonus
+  const featuredBonus = bonuses.find(b => 
+    b.tags?.some(tag => tag.toLowerCase() === 'featured')
+  ) || bonuses[0] || null;
+  
+  // Filter out the featured bonus from the regular list
+  const regularBonuses = featuredBonus 
+    ? bonuses.filter(b => b.id !== featuredBonus.id)
+    : bonuses;
+
   return (
     <div className="min-h-screen bg-background font-sans antialiased text-foreground selection:bg-purple-500/30">
       <Header />
       <main className="space-y-0">
-        <Hero bonuses={bonuses} />
+        <Hero bonuses={bonuses} featuredBonus={featuredBonus} />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <BonusList bonuses={bonuses} />
+          <BonusList bonuses={regularBonuses} />
         </div>
       </main>
     </div>
