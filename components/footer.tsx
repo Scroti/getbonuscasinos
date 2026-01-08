@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Facebook, Instagram, Twitter, Send, CheckCircle2, AlertCircle } from "lucide-react"
@@ -8,6 +9,30 @@ import { Logo } from "@/components/logo"
 import { subscribeToNewsletter } from "@/lib/firebase/newsletter"
 
 export function Footer() {
+  const pathname = usePathname()
+  const [is404Page, setIs404Page] = useState(false)
+
+  useEffect(() => {
+    // Check if we're on a 404 page
+    const check404 = () => {
+      const notFoundElement = document.querySelector('[data-not-found]')
+      if (notFoundElement) {
+        setIs404Page(true)
+        return
+      }
+      setIs404Page(false)
+    }
+    
+    check404()
+    const timer = setTimeout(check404, 100)
+    
+    return () => clearTimeout(timer)
+  }, [pathname])
+
+  // Don't show footer on 404 pages
+  if (is404Page) {
+    return null
+  }
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [status, setStatus] = useState<{
