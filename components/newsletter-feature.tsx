@@ -1,13 +1,20 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 import { NewsletterModal } from "@/components/newsletter-modal"
 import { FloatingSubscribeButton } from "@/components/floating-subscribe-button"
 
 export function NewsletterFeature() {
+  const pathname = usePathname()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [showFloatingButton, setShowFloatingButton] = useState(false)
   const [hasCheckedSession, setHasCheckedSession] = useState(false)
+
+  // Don't show on admin routes or 404 pages
+  if (pathname?.startsWith("/admin") || pathname === "/404" || pathname === null) {
+    return null
+  }
 
   useEffect(() => {
     // Check session storage for first visit
