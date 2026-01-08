@@ -9,6 +9,15 @@ frontend:
           echo "ADMIN_CODE is set: $([ -z "$ADMIN_CODE" ] && echo 'NO' || echo 'YES')"
           echo "ADMIN_TOKEN is set: $([ -z "$ADMIN_TOKEN" ] && echo 'NO' || echo 'YES')"
           echo "NEXT_PUBLIC_FIREBASE_API_KEY is set: $([ -z "$NEXT_PUBLIC_FIREBASE_API_KEY" ] && echo 'NO' || echo 'YES')"
+        - |
+          # Create .env.production file with server-side environment variables
+          # This ensures they're available during Next.js build and runtime
+          if [ ! -z "$ADMIN_CODE" ]; then
+            echo "ADMIN_CODE=$ADMIN_CODE" >> .env.production
+          fi
+          if [ ! -z "$ADMIN_TOKEN" ]; then
+            echo "ADMIN_TOKEN=$ADMIN_TOKEN" >> .env.production
+          fi
     build:
       commands:
         - npm run build
