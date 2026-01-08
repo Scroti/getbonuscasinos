@@ -15,7 +15,7 @@ export function SlotMachineImage({
 }: SlotMachineImageProps) {
   return (
     <Image
-      src="/404.png"
+      src="/test.png"
       alt={alt}
       width={width}
       height={height}

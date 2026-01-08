@@ -11,6 +11,12 @@ import { subscribeToNewsletter } from "@/lib/firebase/newsletter"
 export function Footer() {
   const pathname = usePathname()
   const [is404Page, setIs404Page] = useState(false)
+  const [email, setEmail] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [status, setStatus] = useState<{
+    type: 'success' | 'error' | 'already-subscribed' | null;
+    message: string;
+  }>({ type: null, message: '' })
 
   useEffect(() => {
     // Check if we're on a 404 page
@@ -29,16 +35,10 @@ export function Footer() {
     return () => clearTimeout(timer)
   }, [pathname])
 
-  // Don't show footer on 404 pages
+  // Don't show footer on 404 pages (after all hooks are called)
   if (is404Page) {
     return null
   }
-  const [email, setEmail] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [status, setStatus] = useState<{
-    type: 'success' | 'error' | 'already-subscribed' | null;
-    message: string;
-  }>({ type: null, message: '' })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
