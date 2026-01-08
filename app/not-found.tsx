@@ -4,8 +4,8 @@ import { SlotMachineImage } from '@/components/slot-machine-image'
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-200 p-4" data-not-found="true">
-      <div className="bg-black rounded-3xl p-8 md:p-12 max-w-5xl w-full flex flex-col md:flex-row items-center gap-8 md:gap-12">
+    <div className="min-h-screen w-full flex items-center justify-center bg-black" data-not-found="true">
+      <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 p-8 md:p-12">
         {/* Left Section - Slot Machine Image */}
         <div className="flex-shrink-0">
           <SlotMachineImage 
