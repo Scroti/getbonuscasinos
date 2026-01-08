@@ -52,17 +52,12 @@ export function NewsletterFeature() {
     return () => clearTimeout(timer)
   }, [pathname])
 
-  // Don't show on admin routes
-  if (pathname?.startsWith("/admin") || pathname === "/404" || pathname === null) {
-    return null
-  }
-
-  // Don't show on 404 pages
-  if (is404Page) {
-    return null
-  }
-
   useEffect(() => {
+    // Don't show modal on admin routes or 404 pages
+    if (pathname?.startsWith("/admin") || pathname === "/404" || pathname === null || is404Page) {
+      return
+    }
+
     // Check session storage for first visit
     const hasSeenModal = sessionStorage.getItem("hasSeenNewsletterModal")
     if (!hasSeenModal) {
@@ -74,9 +69,15 @@ export function NewsletterFeature() {
       return () => clearTimeout(timer)
     }
     setHasCheckedSession(true)
-  }, [])
+  }, [pathname, is404Page])
 
   useEffect(() => {
+    // Don't show button on admin routes or 404 pages
+    if (pathname?.startsWith("/admin") || pathname === "/404" || pathname === null || is404Page) {
+      setShowFloatingButton(false)
+      return
+    }
+
     // Intersection Observer for Footer
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -105,7 +106,12 @@ export function NewsletterFeature() {
       if (footer) observer.unobserve(footer)
       clearTimeout(timer)
     }
-  }, [])
+  }, [pathname, is404Page])
+
+  // Don't render anything on admin routes or 404 pages
+  if (pathname?.startsWith("/admin") || pathname === "/404" || pathname === null || is404Page) {
+    return null
+  }
 
   return (
     <>
