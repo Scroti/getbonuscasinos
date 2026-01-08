@@ -26,8 +26,16 @@ export const bonusesApi = createApi({
             return { data: [] };
           }
 
-          // Sort bonuses by ID
+          // Sort bonuses by order field first, then by ID as fallback
           const sortedBonuses = workingBonuses.sort((a, b) => {
+            const orderA = (a as any).order ?? Number.MAX_SAFE_INTEGER;
+            const orderB = (b as any).order ?? Number.MAX_SAFE_INTEGER;
+            
+            if (orderA !== orderB) {
+              return orderA - orderB;
+            }
+            
+            // Fallback to sorting by ID
             if (!a.id) return 1;
             if (!b.id) return -1;
             return a.id.localeCompare(b.id);

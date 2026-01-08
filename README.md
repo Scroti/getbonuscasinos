@@ -17,7 +17,25 @@ NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 
 You can find these values in your Firebase Console under Project Settings > General > Your apps.
 
-### 2. Start the Development Server
+### 2. Configure Admin Access
+
+Add the following environment variables to your `.env.local` file for admin route protection:
+
+```env
+ADMIN_CODE=your_secret_admin_code_here
+ADMIN_TOKEN=admin_authenticated
+```
+
+- `ADMIN_CODE`: The secret code required to access the admin dashboard (set this to a strong, unique value)
+- `ADMIN_TOKEN`: The token used for session management (optional, defaults to "admin_authenticated" if not set)
+
+**Important:** Never commit your `.env.local` file to version control. The admin code should be kept secret.
+
+### 3. Access Admin Dashboard
+
+Navigate to `/admin` in your browser and enter the admin code you set in `ADMIN_CODE`. Once authenticated, you'll be redirected to `/admin/dashboard`.
+
+### 4. Start the Development Server
 
 ```bash
 npm run dev

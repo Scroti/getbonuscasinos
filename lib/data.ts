@@ -1,3 +1,39 @@
+export interface Casino {
+  id: string;
+  name: string;
+  slug?: string;
+  logo?: string;
+  description?: string;
+  rating?: number;
+  website?: string;
+  // Company Information
+  owner?: string;
+  established?: number;
+  annualRevenues?: string;
+  licenses?: string[];
+  // Safety & Trust
+  safetyIndex?: number;
+  safetyIndexLabel?: string; // e.g., "High", "Medium", "Low"
+  // Payment & Limits
+  paymentMethods?: string[];
+  currencies?: string[];
+  withdrawalLimits?: string;
+  winLimits?: string;
+  // Games & Software
+  gameProviders?: string[];
+  gameTypes?: string[];
+  // Support & Languages
+  supportLanguages?: string[];
+  supportMethods?: string[];
+  supportEmail?: string;
+  supportLiveChat?: boolean;
+  // Features
+  positives?: string[];
+  negatives?: string[];
+  // Additional fields can be added later
+  [key: string]: any;
+}
+
 export interface Bonus {
   id: string;
   title: string;
@@ -12,6 +48,9 @@ export interface Bonus {
   wagering?: string;
   minDeposit?: string;
   maxBonus?: string;
+  casino?: string; // Casino/brand name (legacy)
+  brandName?: string; // Alternative field name from Firestore (legacy)
+  casinoId?: string; // Reference to casino document ID
 }
 
 export const featuredBonus: Bonus = {

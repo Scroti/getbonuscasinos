@@ -4,9 +4,10 @@ import { Bonus } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Copy, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { BonusTags } from "@/components/bonus-tags";
 import Image from "next/image";
+import Link from "next/link";
 import { formatTextWithBreaks } from "@/lib/utils/format-text";
 
 interface BonusCardProps {
@@ -26,10 +27,29 @@ export function BonusCard({ bonus, featured = false }: BonusCardProps) {
 
   const { mainOffer, depositDetails } = parseDescription(bonus.description);
 
+  // Generate casino slug from casino name or brandName
+  const casinoName = bonus.casino || bonus.brandName || bonus.title;
+  const casinoSlug = casinoName
+    ?.toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '') || bonus.id;
+
+  const handleCardClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Don't navigate if clicking on button or promo code
+    const target = e.target as HTMLElement;
+    if (target.closest('button') || target.closest('[data-no-navigate]')) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <Card className="group relative overflow-hidden border border-foreground/10 bg-card shadow-lg hover:shadow-xl transition-all duration-300">
-      
-      <div className="flex flex-row relative z-10">
+      <Link 
+        href={`/casino/${casinoSlug}`}
+        className="flex flex-row relative cursor-pointer"
+        aria-label={`View ${casinoName} review`}
+        onClick={handleCardClick}
+      >
         {/* Left Section - Image (Square) */}
         <div className="relative w-32 sm:w-40 md:w-56 h-32 sm:h-40 md:h-56 shrink-0 overflow-hidden">
           <Image
@@ -124,24 +144,27 @@ export function BonusCard({ bonus, featured = false }: BonusCardProps) {
               </div>
               
               {/* Button */}
-              <Button asChild className="h-7 sm:h-8 md:h-9 text-[10px] sm:text-xs md:text-sm bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold px-3 sm:px-4 md:px-6 flex-shrink-0 transition-all duration-300 hover:shadow-lg">
-                <a href={bonus.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1">
+              <div data-no-navigate onClick={(e) => e.stopPropagation()}>
+                <Button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    if (bonus.link) {
+                      window.open(bonus.link, '_blank', 'noopener,noreferrer');
+                    }
+                  }}
+                  className="h-7 sm:h-8 md:h-9 text-[10px] sm:text-xs md:text-sm bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold px-3 sm:px-4 md:px-6 flex-shrink-0 transition-all duration-300 hover:shadow-lg relative z-20 flex items-center justify-center gap-1"
+                >
                   Get Bonus 
                   <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 transition-transform duration-300 group-hover/button:translate-x-0.5" />
-                </a>
-              </Button>
+                </Button>
+              </div>
             </div>
 
-            {/* Promo Code - Below button if exists */}
-            {bonus.code && (
-              <div className="mt-2 flex items-center justify-center rounded border border-dashed border-foreground/30 bg-muted/30 px-2 py-1 font-mono text-[9px] sm:text-[10px] text-foreground cursor-pointer group/code transition-all duration-300 hover:border-purple-500/50 hover:bg-muted/50">
-                <span className="font-bold tracking-wider">{bonus.code}</span>
-                <Copy className="ml-1.5 h-2.5 w-2.5 sm:h-3 sm:w-3 opacity-50 group-hover/code:opacity-100 transition-opacity duration-300" />
-              </div>
-            )}
+            {/* Promo Code removed - bonuses no longer include promo codes */}
           </div>
         </div>
-      </div>
+      </Link>
     </Card>
   );
 }

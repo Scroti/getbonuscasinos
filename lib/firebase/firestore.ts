@@ -1,7 +1,8 @@
-import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+import { collection, getDocs, query, doc, getDoc, DocumentReference } from 'firebase/firestore';
 import { db } from './config';
 import { Bonus } from '../data';
 import { processImageUrl } from '../utils/image-utils';
+import { getCasinoById } from './casinos';
 
 const COLLECTION_NAME = 'bonuses';
 
@@ -11,7 +12,8 @@ const COLLECTION_NAME = 'bonuses';
 export async function getBonusesFromFirestore(): Promise<Bonus[]> {
   try {
     const bonusesRef = collection(db, COLLECTION_NAME);
-    const q = query(bonusesRef, orderBy('brandName', 'asc'));
+    // Note: Can't order by brandName if it's a Firestore reference, so we'll sort in memory
+    const q = query(bonusesRef);
     const snapshot = await getDocs(q);
 
     if (snapshot.empty) {
@@ -19,8 +21,9 @@ export async function getBonusesFromFirestore(): Promise<Bonus[]> {
       return [];
     }
 
-    const bonuses: Bonus[] = snapshot.docs.map((doc, index) => {
-      const data = doc.data();
+    // Process bonuses and resolve casino references
+    const bonusesPromises = snapshot.docs.map(async (docSnapshot) => {
+      const data = docSnapshot.data();
       
       // Parse tags from comma-separated string to array (same as backend)
       const tagsString = data.tags || '';
@@ -40,10 +43,43 @@ export async function getBonusesFromFirestore(): Promise<Bonus[]> {
         trackingLink = `https://${trackingLink}`;
       }
 
-      // Map Firestore data to frontend Bonus structure
+      // Handle brandName - can be a string, reference, or casinoId
+      let brandName = '';
+      let casinoId = '';
+      
+      // Check if brandName is a Firestore DocumentReference
+      if (data.brandName) {
+        if (data.brandName instanceof DocumentReference || (data.brandName.path && data.brandName.id)) {
+          // It's a reference
+          const ref = data.brandName as DocumentReference;
+          casinoId = ref.id;
+          try {
+            const casinoDoc = await getDoc(ref);
+            if (casinoDoc.exists()) {
+              brandName = casinoDoc.data().name || '';
+            }
+          } catch (error) {
+            console.warn(`Failed to resolve casino reference for bonus ${docSnapshot.id}:`, error);
+          }
+        } else if (typeof data.brandName === 'string') {
+          // It's a string (legacy)
+          brandName = data.brandName;
+        }
+      }
+      
+      // Also check casinoId/casinoRef fields
+      if (!casinoId) {
+        casinoId = data.casinoId || data.casinoRef || '';
+      }
+      
+      // Fallback to casino field if brandName is still empty
+      if (!brandName) {
+        brandName = data.casino || '';
+      }
+      
       return {
-        id: data.id || doc.id,
-        title: data.welcomeBonus || data.title || data.brandName || 'Unknown Casino',
+        id: data.id || docSnapshot.id,
+        title: data.welcomeBonus || data.title || brandName || 'Unknown Casino',
         description: data.bonusDetails || data.description || '',
         code: data.code || '',
         link: trackingLink,
@@ -55,7 +91,28 @@ export async function getBonusesFromFirestore(): Promise<Bonus[]> {
         wagering: data.wager || data.wagering || '',
         minDeposit: data.minDeposit || '',
         maxBonus: data.maxBonus || '',
+        casino: brandName, // Legacy field
+        brandName: brandName, // Legacy field
+        casinoId: casinoId, // Reference to casino document
+        order: data.order !== undefined ? data.order : Number.MAX_SAFE_INTEGER, // Order field for sorting
       };
+    });
+
+    let bonuses = await Promise.all(bonusesPromises);
+    
+    // Sort bonuses by order field first, then by casino name or title
+    bonuses.sort((a, b) => {
+      const orderA = (a as any).order ?? Number.MAX_SAFE_INTEGER;
+      const orderB = (b as any).order ?? Number.MAX_SAFE_INTEGER;
+      
+      if (orderA !== orderB) {
+        return orderA - orderB;
+      }
+      
+      // Fallback to sorting by casino name or title
+      const nameA = a.brandName || a.casino || a.title || '';
+      const nameB = b.brandName || b.casino || b.title || '';
+      return nameA.localeCompare(nameB);
     });
 
     console.log(`✅ Successfully fetched ${bonuses.length} bonuses from Firestore`);
