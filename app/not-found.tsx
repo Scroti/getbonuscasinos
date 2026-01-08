@@ -9,9 +9,9 @@ export default function NotFound() {
         {/* Left Section - Slot Machine Image */}
         <div className="flex-shrink-0">
           <SlotMachineImage 
-            width={300}
-            height={400}
-            className="max-w-[280px] max-h-[380px]"
+            width={500}
+            height={650}
+            className="max-w-[500px] max-h-[650px] md:max-w-[600px] md:max-h-[780px]"
             alt="404 Slot Machine"
           />
         </div>
