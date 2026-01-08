@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { Button } from '@/components/ui/button'
+import { SlotMachineImage } from '@/components/slot-machine-image'
 
 export default function NotFound() {
   return (
@@ -8,13 +8,11 @@ export default function NotFound() {
       <div className="bg-black rounded-3xl p-8 md:p-12 max-w-5xl w-full flex flex-col md:flex-row items-center gap-8 md:gap-12">
         {/* Left Section - Slot Machine Image */}
         <div className="flex-shrink-0">
-          <Image
-            src="/404.png"
-            alt="404 Slot Machine"
+          <SlotMachineImage 
             width={300}
             height={400}
-            className="w-auto h-auto max-w-[280px] max-h-[380px] object-contain"
-            priority
+            className="max-w-[280px] max-h-[380px]"
+            alt="404 Slot Machine"
           />
         </div>
 
