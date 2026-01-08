@@ -10,9 +10,55 @@ export function NewsletterFeature() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [showFloatingButton, setShowFloatingButton] = useState(false)
   const [hasCheckedSession, setHasCheckedSession] = useState(false)
+  const [is404Page, setIs404Page] = useState(false)
 
-  // Don't show on admin routes or 404 pages
+  // Check if we're on a 404 page
+  useEffect(() => {
+    // Check for Next.js not-found page indicators
+    const check404 = () => {
+      // Check for data-not-found attribute (from our custom not-found page)
+      const notFoundElement = document.querySelector('[data-not-found]')
+      if (notFoundElement) {
+        setIs404Page(true)
+        return
+      }
+      
+      // Check page title
+      const title = document.title?.toLowerCase() || ''
+      if (title.includes('404') || title.includes('not found')) {
+        setIs404Page(true)
+        return
+      }
+      
+      // Check for common 404 indicators in the page
+      const h1Text = document.querySelector('h1')?.textContent?.toLowerCase() || ''
+      const bodyText = document.body?.textContent?.toLowerCase() || ''
+      
+      if (h1Text.includes('not found') || 
+          h1Text.includes('404') || 
+          bodyText.includes('this page could not be found') ||
+          bodyText.includes('page not found')) {
+        setIs404Page(true)
+        return
+      }
+      
+      setIs404Page(false)
+    }
+    
+    // Check immediately and after DOM is ready
+    check404()
+    const timer = setTimeout(check404, 500)
+    
+    return () => clearTimeout(timer)
+  }, [pathname])
+
+  // Don't show on admin routes
   if (pathname?.startsWith("/admin") || pathname === "/404" || pathname === null) {
+    return null
+  }
+
+  // Don't show on 404 pages
+  if (is404Page) {
     return null
   }
 
