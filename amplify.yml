@@ -4,38 +4,14 @@ frontend:
     preBuild:
       commands:
         - npm ci
+        - |
+          echo "=== Environment Variables Check ==="
+          echo "ADMIN_CODE is set: $([ -z "$ADMIN_CODE" ] && echo 'NO' || echo 'YES')"
+          echo "ADMIN_TOKEN is set: $([ -z "$ADMIN_TOKEN" ] && echo 'NO' || echo 'YES')"
+          echo "NEXT_PUBLIC_FIREBASE_API_KEY is set: $([ -z "$NEXT_PUBLIC_FIREBASE_API_KEY" ] && echo 'NO' || echo 'YES')"
     build:
       commands:
         - npm run build
-    postBuild:
-      commands:
-        - |
-          echo "=== Verifying Next.js build output ==="
-          
-          # Check required-server-files.json (should be in .next/)
-          if [ -f .next/required-server-files.json ]; then
-            echo "✓ Found required-server-files.json"
-          else
-            echo "⚠ WARNING: required-server-files.json not found"
-          fi
-          
-          # Verify standalone structure
-          if [ -d .next/standalone ]; then
-            echo "✓ Standalone directory exists"
-          else
-            echo "⚠ WARNING: Standalone directory not found"
-          fi
-          
-          # Verify static files
-          if [ -d .next/static ]; then
-            echo "✓ Static directory exists"
-          fi
-          
-          # List .next directory structure
-          echo "=== .next directory structure ==="
-          ls -la .next/ | head -15
-          
-          echo "=== Build verification complete ==="
   artifacts:
     baseDirectory: .next
     files:
