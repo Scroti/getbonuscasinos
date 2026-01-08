@@ -31,6 +31,11 @@ const nextConfig: NextConfig = {
     ],
   },
   transpilePackages: ['@reduxjs/toolkit', 'react-redux'],
+  // Explicitly include server-side environment variables for standalone build
+  env: {
+    ADMIN_CODE: process.env.ADMIN_CODE,
+    ADMIN_TOKEN: process.env.ADMIN_TOKEN,
+  },
 };
 
 export default nextConfig;
