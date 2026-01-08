@@ -16,9 +16,11 @@ export async function POST(request: NextRequest) {
     const adminCode = process.env.ADMIN_CODE;
 
     if (!adminCode) {
-      console.error("ADMIN_CODE environment variable is not set");
+      console.error("ADMIN_CODE environment variable is not set. Please configure it in AWS Amplify console.");
       return NextResponse.json(
-        { error: "Server configuration error" },
+        { 
+          error: "Server configuration error: ADMIN_CODE environment variable is not set. Please configure it in AWS Amplify console under App settings > Environment variables." 
+        },
         { status: 500 }
       );
     }
