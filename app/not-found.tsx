@@ -27,7 +27,7 @@ export default function NotFound() {
             Oops! A glitch in the reels.
           </h1>
           <p className="text-lg md:text-xl font-serif text-gray-300 mb-8">
-            The slot page you were looking for is missing.
+            The page you were looking for is missing.
           </p>
           <Button 
             asChild 
