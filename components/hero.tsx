@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ShieldCheck, Zap, Crown } from "lucide-react";
 import { BonusTags } from "@/components/bonus-tags";
 import Image from "next/image";
+import Link from "next/link";
 import { formatTextWithBreaks } from "@/lib/utils/format-text";
 
 interface HeroProps {
@@ -24,6 +25,21 @@ export function Hero({ bonuses, featuredBonus }: HeroProps) {
       </section>
     );
   }
+
+  // Generate casino slug from casino name or brandName (same logic as BonusCard)
+  const casinoName = featuredBonus.casino || featuredBonus.brandName || featuredBonus.title;
+  const casinoSlug = casinoName
+    ?.toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '') || featuredBonus.id;
+
+  const handleCardClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Don't navigate if clicking on button or promo code
+    const target = e.target as HTMLElement;
+    if (target.closest('button') || target.closest('[data-no-navigate]')) {
+      e.preventDefault();
+    }
+  };
 
   return (
     <section className="relative w-full overflow-hidden bg-background pt-24 pb-8 lg:pt-32 lg:pb-12 transition-colors duration-300">
@@ -118,7 +134,12 @@ export function Hero({ bonuses, featuredBonus }: HeroProps) {
 
           {/* Right Content - 3D Card */}
           <div className="hidden lg:block relative mx-auto w-full max-w-xs perspective-1000 lg:mx-0 lg:ml-auto">
-            <div className="relative transform transition-all duration-500 hover:rotate-y-12 hover:rotate-x-12 preserve-3d">
+            <Link
+              href={`/casino/${casinoSlug}`}
+              className="block relative transform transition-all duration-500 hover:rotate-y-12 hover:rotate-x-12 preserve-3d cursor-pointer"
+              onClick={handleCardClick}
+              aria-label={`View ${casinoName} review`}
+            >
               {/* Glow Behind */}
               <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-r from-purple-600 to-pink-600 opacity-20 dark:opacity-40 blur-2xl animate-pulse" />
 
@@ -158,7 +179,7 @@ export function Hero({ bonuses, featuredBonus }: HeroProps) {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

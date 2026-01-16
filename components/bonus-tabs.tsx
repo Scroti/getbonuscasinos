@@ -49,11 +49,11 @@ export function BonusTabs({ groupedBonuses }: BonusTabsProps) {
 
         {/* Active Tab Content - Horizontal on mobile, Vertical on desktop */}
         <div className="lg:space-y-2 lg:space-y-3 lg:max-h-[600px] lg:overflow-y-auto lg:scrollbar-hide">
-          {/* Mobile: Horizontal Scroll */}
-          <div className="lg:hidden overflow-x-auto scrollbar-hide -mx-1 px-1 pb-2">
-            <div className="flex gap-3 min-w-max">
+          {/* Mobile: Horizontal Scroll or Full Width if single */}
+          <div className={`lg:hidden ${activeBonuses.length === 1 ? '' : 'overflow-x-auto scrollbar-hide -mx-1 px-1 pb-2'}`}>
+            <div className={`${activeBonuses.length === 1 ? 'w-full' : 'flex gap-3 min-w-max'}`}>
               {activeBonuses.map((bonus, index) => (
-                <Card key={bonus.id || index} className="p-3 min-w-[280px] max-w-[280px] flex-shrink-0">
+                <Card key={bonus.id || index} className={`p-3 ${activeBonuses.length === 1 ? 'w-full' : 'min-w-[280px] max-w-[280px] flex-shrink-0'}`}>
                   <div className="flex items-center gap-1.5 mb-2">
                     <div className="w-5 h-5 rounded-full bg-red-600 flex items-center justify-center flex-shrink-0">
                       <Sparkles className="h-2.5 w-2.5 text-white" />
