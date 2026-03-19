@@ -6,10 +6,12 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Facebook, Instagram, Twitter, Send, CheckCircle2, AlertCircle } from "lucide-react"
 import { Logo } from "@/components/logo"
+import { useSiteBrand } from "@/components/site-brand-provider"
 import { subscribeToNewsletter } from "@/lib/firebase/newsletter"
 
 export function Footer() {
   const pathname = usePathname()
+  const { siteTitle } = useSiteBrand()
   const [is404Page, setIs404Page] = useState(false)
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -195,7 +197,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-foreground/10 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
-          <p className="text-center md:text-left">© {new Date().getFullYear()} GetBonusCasinos. All rights reserved.</p>
+          <p className="text-center md:text-left">© {new Date().getFullYear()} {siteTitle}. All rights reserved.</p>
           <div className="flex items-center gap-2">
             <span className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-foreground/5 border border-foreground/5 text-[10px] sm:text-xs">
               <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-green-500 animate-pulse"></span>
