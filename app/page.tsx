@@ -9,14 +9,33 @@ export async function generateMetadata(): Promise<Metadata> {
   const h = await headers();
   const brand = getSiteBrand(h.get("x-forwarded-host") ?? h.get("host"));
 
+  const title = `${brand.siteTitle} — casino bonuses & welcome offers`;
+  const description = siteBrandDescription(brand);
+
   return {
-    title: `${brand.siteTitle} — casino bonuses & operator offers`,
-    description: siteBrandDescription(brand),
+    title,
+    description,
+    keywords: [
+      "casino bonuses",
+      "online casino offers",
+      "welcome bonus",
+      "casino promotions",
+      "wagering requirements",
+      "compare casino offers",
+    ],
     alternates: { canonical: "/" },
     openGraph: {
-      title: `${brand.siteTitle} — casino bonuses & operator offers`,
-      description: siteBrandDescription(brand),
+      title,
+      description,
       url: "/",
+      type: "website",
+      locale: "en",
+      siteName: brand.siteTitle,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }

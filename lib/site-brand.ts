@@ -190,7 +190,10 @@ export function getSiteBrand(hostHeader: string | null): SiteBrand {
   return DEFAULT_BRAND;
 }
 
-/** Homepage / default meta description — ~155 chars, definitional for snippets & AI extraction. */
+/**
+ * Default meta description (layout + pages) — definitional for snippets & AI extraction.
+ * Keeps claims bounded; Google may still rewrite snippets from body text.
+ */
 export function siteBrandDescription(brand: SiteBrand): string {
-  return `Independent guide to online casino bonuses on ${brand.siteTitle}. Compare offers and key rules; always confirm wagering, deposits, and eligibility on the operator’s site. 18+ only.`;
+  return `Compare casino bonuses and welcome offers on ${brand.siteTitle}: editorial summaries of third-party promos with wagering, deposits, and key rules—not a casino. Always confirm eligibility and full terms on each operator's site. 18+ only.`;
 }

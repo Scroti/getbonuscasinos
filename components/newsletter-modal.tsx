@@ -77,7 +77,10 @@ export function NewsletterModal({ isOpen, onClose }: NewsletterModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-2xl bg-background/95 backdrop-blur-xl border-foreground/10 p-0 overflow-hidden gap-0 shadow-2xl mx-4 sm:mx-auto">
+      <DialogContent
+        className="sm:max-w-2xl bg-background/95 backdrop-blur-xl border-foreground/10 p-0 overflow-hidden gap-0 shadow-2xl mx-4 sm:mx-auto"
+        data-nosnippet
+      >
         <div className="relative p-5 sm:p-8 md:p-10 flex flex-col items-center text-center">
           {/* Background Glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 h-24 w-24 sm:h-32 sm:w-32 bg-purple-600/20 blur-[50px] rounded-full pointer-events-none" />
