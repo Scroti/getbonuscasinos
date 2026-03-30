@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { BonusesContainer } from "@/components/bonuses-container";
+import { getHomeFaqItems } from "@/lib/home-faq";
 import { getSiteBrand, siteBrandDescription } from "@/lib/site-brand";
 import { getCanonicalOrigin } from "@/lib/site-url";
 
@@ -26,6 +27,7 @@ export default async function Home() {
   const origin = getCanonicalOrigin(h);
 
   const desc = siteBrandDescription(brand);
+  const faqItems = getHomeFaqItems(brand.siteTitle);
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -54,6 +56,20 @@ export default async function Home() {
           description:
             "Editorial summaries of third-party gambling promotions; the publisher is not a casino operator.",
         },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${origin}/#faq`,
+        url: origin,
+        isPartOf: { "@id": `${origin}/#webpage` },
+        mainEntity: faqItems.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
       },
     ],
   };

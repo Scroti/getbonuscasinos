@@ -8,6 +8,7 @@ import { Facebook, Instagram, Twitter, Send, CheckCircle2, AlertCircle } from "l
 import { Logo } from "@/components/logo"
 import { useSiteBrand } from "@/components/site-brand-provider"
 import { subscribeToNewsletter } from "@/lib/firebase/newsletter"
+import { FooterFaq } from "@/components/footer-faq"
 import { GUIDES_FOR_NAV, guideHref } from "@/lib/guides"
 
 export function Footer() {
@@ -100,7 +101,7 @@ export function Footer() {
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-10 md:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-6 sm:mb-8 md:mb-10">
           {/* Brand Column */}
           <div className="space-y-4 sm:space-y-6">
             <Link href="/" className="block">
@@ -243,6 +244,10 @@ export function Footer() {
                 .
               </p>
             </form>
+          </div>
+
+          <div className="col-span-full md:col-span-2 lg:col-span-4 pt-6 sm:pt-8 mt-2 border-t border-foreground/10">
+            <FooterFaq siteTitle={siteTitle} />
           </div>
         </div>
 
