@@ -1,8 +1,14 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Home } from 'lucide-react'
 import { BackButton } from '@/components/back-button'
 import { SlotMachineImage } from '@/components/slot-machine-image'
+
+export const metadata: Metadata = {
+  title: 'Page not found',
+  robots: { index: false, follow: true },
+}
 
 export default function NotFound() {
   return (

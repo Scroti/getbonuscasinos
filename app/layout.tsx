@@ -8,6 +8,7 @@ import { NewsletterFeature } from "@/components/newsletter-feature";
 import StoreProvider from "@/components/providers/store-provider";
 import { SiteBrandProvider } from "@/components/site-brand-provider";
 import { getSiteBrand, siteBrandDescription } from "@/lib/site-brand";
+import { getCanonicalOrigin } from "@/lib/site-url";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,9 +30,29 @@ export async function generateMetadata(): Promise<Metadata> {
   const h = await headers();
   const host = h.get("x-forwarded-host") ?? h.get("host");
   const brand = getSiteBrand(host);
+  const metadataBase = new URL(getCanonicalOrigin(h));
+  const description = siteBrandDescription(brand);
+
   return {
-    title: brand.siteTitle,
-    description: siteBrandDescription(brand),
+    metadataBase,
+    title: {
+      default: brand.siteTitle,
+      template: `%s | ${brand.siteTitle}`,
+    },
+    description,
+    openGraph: {
+      type: "website",
+      locale: "en",
+      siteName: brand.siteTitle,
+      title: brand.siteTitle,
+      description,
+      url: metadataBase,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: brand.siteTitle,
+      description,
+    },
   };
 }
 

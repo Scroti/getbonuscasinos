@@ -1,4 +1,8 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { headers } from "next/headers";
+import { getSiteBrand } from "@/lib/site-brand";
+import { getCanonicalOrigin } from "@/lib/site-url";
 import { getBonusesFromFirestore } from "@/lib/firebase/firestore";
 import { getCasinoBySlug, getCasinoById } from "@/lib/firebase/casinos";
 import { Bonus, Casino } from "@/lib/data";
@@ -15,7 +19,7 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-async function getCasinoData(slug: string): Promise<{ casino: Casino | null; bonuses: Bonus[] }> {
+export async function getCasinoData(slug: string): Promise<{ casino: Casino | null; bonuses: Bonus[] }> {
   try {
     let casino = await getCasinoBySlug(slug);
     let bonuses: Bonus[] = [];
@@ -82,7 +86,49 @@ async function getCasinoData(slug: string): Promise<{ casino: Casino | null; bon
   }
 }
 
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const { casino, bonuses } = await getCasinoData(slug);
 
+  if (!casino && bonuses.length === 0) {
+    return {
+      title: "Not found",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const h = await headers();
+  const brand = getSiteBrand(h.get("x-forwarded-host") ?? h.get("host"));
+  const origin = getCanonicalOrigin(h);
+  const name =
+    casino?.name ||
+    bonuses[0]?.casino ||
+    bonuses[0]?.brandName ||
+    bonuses[0]?.title ||
+    "Casino";
+  const canonicalPath = `/casino/${slug}`;
+  const description =
+    (casino?.description && casino.description.slice(0, 160).trim()) ||
+    `Independent overview of ${name}: bonuses, payments, and review notes. Eligibility and offers change—confirm on the operator’s site before you play.`;
+
+  return {
+    title: `${name} Review & Bonuses`,
+    description,
+    alternates: { canonical: canonicalPath },
+    openGraph: {
+      title: `${name} Review & Bonuses | ${brand.siteTitle}`,
+      description,
+      url: `${origin}${canonicalPath}`,
+      type: "article",
+      siteName: brand.siteTitle,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${name} Review & Bonuses | ${brand.siteTitle}`,
+      description,
+    },
+  };
+}
 
 export default async function CasinoReviewPage({ params }: PageProps) {
   const { slug } = await params;
