@@ -191,9 +191,9 @@ export function getSiteBrand(hostHeader: string | null): SiteBrand {
 }
 
 /**
- * Default meta description (layout + pages) — definitional for snippets & AI extraction.
- * Keeps claims bounded; Google may still rewrite snippets from body text.
+ * Default meta description (layout + pages). Target ~120–160 chars for audit/SERP tools;
+ * Google may still rewrite snippets from body text.
  */
 export function siteBrandDescription(brand: SiteBrand): string {
-  return `Compare casino bonuses and welcome offers on ${brand.siteTitle}: editorial summaries of third-party promos with wagering, deposits, and key rules—not a casino. Always confirm eligibility and full terms on each operator's site. 18+ only.`;
+  return `${brand.siteTitle}: casino bonuses & welcome offers compared. Publisher, not a casino—confirm terms on each operator. 18+ only.`;
 }
