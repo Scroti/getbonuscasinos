@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { headers } from "next/headers";
 import { getCanonicalOrigin } from "@/lib/site-url";
 import { getCasinosFromFirestore } from "@/lib/firebase/casinos";
+import { GUIDE_SLUGS, guideHref } from "@/lib/guides";
 
 export const dynamic = "force-dynamic";
 
@@ -41,6 +42,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "yearly",
       priority: 0.4,
     },
+    {
+      url: `${base}/how-we-rate`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.45,
+    },
+    ...GUIDE_SLUGS.map((slug) => ({
+      url: `${base}${guideHref(slug)}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.55,
+    })),
   ];
 
   try {

@@ -14,6 +14,8 @@ import { ArrowRight, Star, Globe, MessageCircle, ExternalLink, Sparkles, Trendin
 import { Header } from "@/components/header";
 import { CollapsibleSection } from "@/components/collapsible-section";
 import { BonusTabs } from "@/components/bonus-tabs";
+import { CasinoGuidesBlock } from "@/components/casino-guides-block";
+import { AFFILIATE_OUTBOUND_REL } from "@/lib/affiliate-links";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -219,7 +221,7 @@ export default async function CasinoReviewPage({ params }: PageProps) {
 
                 {casinoWebsite && (
                   <Button asChild className="w-full bg-red-600 hover:bg-red-700 mb-3 text-sm sm:text-base py-2.5 sm:py-2">
-                    <a href={casinoWebsite} target="_blank" rel="noopener noreferrer">
+                    <a href={casinoWebsite} target="_blank" rel={AFFILIATE_OUTBOUND_REL}>
                       Visit Casino
                       <ExternalLink className="ml-2 h-3.5 w-3.5 sm:h-4 sm:w-4" />
                     </a>
@@ -382,6 +384,8 @@ export default async function CasinoReviewPage({ params }: PageProps) {
               })()}
             </div>
           </div>
+
+          <CasinoGuidesBlock />
         </div>
       </main>
     </div>

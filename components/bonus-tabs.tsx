@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sparkles, ArrowRight } from "lucide-react";
 import { Bonus } from "@/lib/data";
+import { AFFILIATE_OUTBOUND_REL } from "@/lib/affiliate-links";
 
 interface BonusTabsProps {
   groupedBonuses: Record<string, Bonus[]>;
@@ -87,7 +88,7 @@ export function BonusTabs({ groupedBonuses }: BonusTabsProps) {
                   )}
                   {bonus.link && (
                     <Button asChild className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold text-[10px] py-1.5">
-                      <a href={bonus.link} target="_blank" rel="noopener noreferrer">
+                      <a href={bonus.link} target="_blank" rel={AFFILIATE_OUTBOUND_REL}>
                         Claim Bonus
                         <ArrowRight className="ml-1.5 h-2.5 w-2.5" />
                       </a>
@@ -135,7 +136,7 @@ export function BonusTabs({ groupedBonuses }: BonusTabsProps) {
                 )}
                 {bonus.link && (
                   <Button asChild className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold text-[10px] sm:text-xs py-1.5 sm:py-2">
-                    <a href={bonus.link} target="_blank" rel="noopener noreferrer">
+                    <a href={bonus.link} target="_blank" rel={AFFILIATE_OUTBOUND_REL}>
                       Claim Bonus
                       <ArrowRight className="ml-1.5 sm:ml-2 h-2.5 w-2.5 sm:h-3 sm:w-3" />
                     </a>

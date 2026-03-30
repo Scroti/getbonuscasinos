@@ -40,6 +40,17 @@ export function normalizeHost(raw: string | null): string {
   return h.startsWith("www.") ? h.slice(4) : h;
 }
 
+/** Local / loopback hosts should not become the brand name (e.g. “Localhost”). */
+function isLoopbackHost(host: string): boolean {
+  const h = host.split(":")[0].toLowerCase();
+  return (
+    h === "localhost" ||
+    h === "127.0.0.1" ||
+    h === "::1" ||
+    h === "0.0.0.0"
+  );
+}
+
 function apexSlug(host: string): string {
   const h = host.replace(/^www\./, "").toLowerCase();
   const parts = h.split(".").filter(Boolean);
@@ -174,10 +185,12 @@ export function getSiteBrand(hostHeader: string | null): SiteBrand {
   if (host && jsonMap?.[host]) return jsonMap[host];
   if (host && HOST_BRAND_MAP[host]) return HOST_BRAND_MAP[host];
 
+  if (host && isLoopbackHost(host)) return DEFAULT_BRAND;
   if (host) return fallbackFromHost(host);
   return DEFAULT_BRAND;
 }
 
+/** Homepage / default meta description — ~155 chars, definitional for snippets & AI extraction. */
 export function siteBrandDescription(brand: SiteBrand): string {
-  return `Discover the best casino bonuses and offers on ${brand.siteTitle}.`;
+  return `Independent guide to online casino bonuses on ${brand.siteTitle}. Compare offers and key rules; always confirm wagering, deposits, and eligibility on the operator’s site. 18+ only.`;
 }

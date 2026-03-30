@@ -8,6 +8,7 @@ import { Facebook, Instagram, Twitter, Send, CheckCircle2, AlertCircle } from "l
 import { Logo } from "@/components/logo"
 import { useSiteBrand } from "@/components/site-brand-provider"
 import { subscribeToNewsletter } from "@/lib/firebase/newsletter"
+import { GUIDES_FOR_NAV, guideHref } from "@/lib/guides"
 
 export function Footer() {
   const pathname = usePathname()
@@ -89,9 +90,17 @@ export function Footer() {
   }
 
   return (
-    <footer id="main-footer" className="bg-background border-t border-foreground/10 pt-10 sm:pt-12 md:pt-16 pb-6 sm:pb-8">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-10 md:mb-12">
+    <footer
+      id="main-footer"
+      className="relative overflow-hidden bg-background border-t border-foreground/10 pt-10 sm:pt-12 md:pt-16 pb-6 sm:pb-8"
+    >
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div className="absolute -top-12 right-1/4 h-72 w-72 rounded-full bg-purple-600/10 blur-[80px]" />
+        <div className="absolute bottom-0 left-1/4 h-72 w-72 rounded-full bg-indigo-600/10 blur-[80px]" />
+      </div>
+
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-10 md:mb-12">
           {/* Brand Column */}
           <div className="space-y-4 sm:space-y-6">
             <Link href="/" className="block">
@@ -99,42 +108,83 @@ export function Footer() {
             </Link>
 
             <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed max-w-sm">
-              Your trusted source for the best casino bonuses, free spins, and exclusive offers. We provide honest reviews and the latest promotions to help you play smarter.
+              Independent guide to casino bonuses and operator offers. Compare listings and always
+              confirm terms on each brand&apos;s site before you play.
             </p>
+
+            <p
+              id="affiliate-disclosure"
+              className="text-muted-foreground text-xs sm:text-sm leading-relaxed max-w-sm"
+            >
+              <span className="font-semibold text-foreground">Affiliate disclosure. </span>
+              {siteTitle} is an independent guide, not a casino. We may earn a commission when you
+              visit operators through our links. Offers, wagering rules, and eligibility change;
+              always confirm on the operator&apos;s site before you deposit.{" "}
+              <Link
+                href="/how-we-rate"
+                className="font-medium text-primary hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline-offset-2 hover:underline"
+              >
+                How we list offers
+              </Link>
+              .
+            </p>
+
             <div className="flex gap-3 sm:gap-4 pt-1 sm:pt-2">
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors p-2 hover:bg-foreground/5 rounded-full touch-target">
+              <Link href="#" className="text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400 transition-colors p-2 hover:bg-foreground/5 rounded-full touch-target">
                 <Twitter className="h-4 w-4 sm:h-5 sm:w-5" />
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors p-2 hover:bg-foreground/5 rounded-full touch-target">
+              <Link href="#" className="text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400 transition-colors p-2 hover:bg-foreground/5 rounded-full touch-target">
                 <Facebook className="h-4 w-4 sm:h-5 sm:w-5" />
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors p-2 hover:bg-foreground/5 rounded-full touch-target">
+              <Link href="#" className="text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400 transition-colors p-2 hover:bg-foreground/5 rounded-full touch-target">
                 <Instagram className="h-4 w-4 sm:h-5 sm:w-5" />
               </Link>
             </div>
           </div>
 
+          {/* Guides */}
+          <div className="lg:pl-4">
+            <h3 className="font-bold text-base sm:text-lg mb-4 sm:mb-6">Guides</h3>
+            <ul className="space-y-3 sm:space-y-4 text-xs sm:text-sm">
+              {GUIDES_FOR_NAV.map((g) => (
+                <li key={g.slug}>
+                  <Link
+                    href={guideHref(g.slug)}
+                    className="text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400 transition-colors py-1 touch-target block leading-snug"
+                  >
+                    {g.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Support */}
-          <div className="md:pl-12">
+          <div className="md:pl-0 lg:pl-4">
             <h3 className="font-bold text-base sm:text-lg mb-4 sm:mb-6">Support & Legal</h3>
             <ul className="space-y-3 sm:space-y-4 text-xs sm:text-sm">
               <li>
-                <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 py-1 touch-target">
+                <Link href="/contact" className="text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400 transition-colors flex items-center gap-2 py-1 touch-target">
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-muted-foreground hover:text-primary transition-colors py-1 touch-target block">
+                <Link href="/terms" className="text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400 transition-colors py-1 touch-target block">
                   Terms & Conditions
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-muted-foreground hover:text-primary transition-colors py-1 touch-target block">
+                <Link href="/privacy" className="text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400 transition-colors py-1 touch-target block">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <a href="https://www.begambleaware.org" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors py-1 touch-target block">
+                <Link href="/how-we-rate" className="text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400 transition-colors py-1 touch-target block">
+                  How we list offers
+                </Link>
+              </li>
+              <li>
+                <a href="https://www.begambleaware.org" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400 transition-colors py-1 touch-target block">
                   Responsible Gaming
                 </a>
               </li>
