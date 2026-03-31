@@ -21,6 +21,28 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+function buildCasinoKeywords(name: string, bonuses: Bonus[]): string[] {
+  const base = name.trim();
+  const primary = [
+    `${base} review`,
+    `${base} bonus`,
+    `${base} welcome offer`,
+    `${base} wagering requirements`,
+    `${base} deposit bonus`,
+  ];
+
+  const bonusTerms = new Set<string>();
+  for (const bonus of bonuses) {
+    for (const tag of bonus.tags || []) {
+      const normalized = tag.trim().toLowerCase();
+      if (!normalized) continue;
+      bonusTerms.add(normalized);
+    }
+  }
+
+  return [...primary, ...bonusTerms].slice(0, 8);
+}
+
 export async function getCasinoData(slug: string): Promise<{ casino: Casino | null; bonuses: Bonus[] }> {
   try {
     let casino = await getCasinoBySlug(slug);
@@ -109,16 +131,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     bonuses[0]?.title ||
     "Casino";
   const canonicalPath = `/casino/${slug}`;
+  const topBonus = bonuses[0] || null;
+  const title = `${name} review & bonus | ${brand.siteTitle}`;
+  const fallbackDescriptionParts = [
+    `${name} review covering bonus terms`,
+    topBonus?.wagering ? `wagering ${topBonus.wagering}` : null,
+    topBonus?.minDeposit ? `min deposit ${topBonus.minDeposit}` : null,
+    "and key conditions.",
+    "Confirm full operator terms before you deposit.",
+  ].filter(Boolean);
   const description =
     (casino?.description && casino.description.slice(0, 160).trim()) ||
-    `Independent overview of ${name}: bonuses, payments, and review notes. Eligibility and offers change—confirm on the operator’s site before you play.`;
+    fallbackDescriptionParts.join(" ");
+  const keywords = buildCasinoKeywords(name, bonuses);
 
   return {
-    title: `${name} Review & Bonuses`,
+    title,
     description,
+    keywords,
     alternates: { canonical: canonicalPath },
     openGraph: {
-      title: `${name} Review & Bonuses | ${brand.siteTitle}`,
+      title,
       description,
       url: `${origin}${canonicalPath}`,
       type: "article",
@@ -126,7 +159,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     twitter: {
       card: "summary_large_image",
-      title: `${name} Review & Bonuses | ${brand.siteTitle}`,
+      title,
       description,
     },
   };
