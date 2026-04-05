@@ -51,13 +51,37 @@ export function Hero({ bonuses, featuredBonus }: HeroProps) {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-0 pointer-events-none" />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        {/* One H1 for the whole home hero — avoids duplicate H1 in DOM (mobile + desktop). */}
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tighter text-foreground text-center lg:text-left mb-6 lg:mb-8 max-w-4xl mx-auto lg:mx-0">
-          Unlock the{" "}
-          <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 dark:from-purple-400 dark:via-pink-500 dark:to-red-500 bg-clip-text text-transparent">
-            Ultimate Bonuses
-          </span>
+        {/* Primary H1 with target keyword for SEO */}
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tighter text-foreground text-center lg:text-left mb-4 lg:mb-5 max-w-4xl mx-auto lg:mx-0">
+          Best Casino Bonuses &amp; Welcome Offers 2026 &ndash; Compared
         </h1>
+
+        {/* Value proposition paragraph with primary keyword in first 100 words */}
+        <p className="mx-auto max-w-4xl lg:mx-0 text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 text-center lg:text-left">
+          We compare the best casino bonuses available today so you can claim top welcome offers with confidence. Every casino bonus on our list is independently reviewed, updated daily, and sourced exclusively from licensed operators — helping you find the highest-value deals without the guesswork.
+        </p>
+
+        {/* Trust signal badges */}
+        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 mb-6 lg:mb-8">
+          <div className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 backdrop-blur-md">
+            <ShieldCheck className="mr-1.5 h-3.5 w-3.5 text-emerald-600 dark:text-emerald-500" />
+            <span className="text-[10px] sm:text-xs font-bold text-emerald-600 dark:text-emerald-500 uppercase tracking-wider">
+              Licensed Operators Only
+            </span>
+          </div>
+          <div className="inline-flex items-center rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 backdrop-blur-md">
+            <ShieldCheck className="mr-1.5 h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
+            <span className="text-[10px] sm:text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+              18+ Verified
+            </span>
+          </div>
+          <div className="inline-flex items-center rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1 backdrop-blur-md">
+            <ShieldCheck className="mr-1.5 h-3.5 w-3.5 text-purple-600 dark:text-purple-400" />
+            <span className="text-[10px] sm:text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider">
+              Updated Daily
+            </span>
+          </div>
+        </div>
 
         {/* Mobile: badge + featured card (card image uses priority for LCP) */}
         <div className="md:hidden space-y-6">
