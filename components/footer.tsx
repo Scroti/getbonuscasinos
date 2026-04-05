@@ -131,15 +131,15 @@ export function Footer() {
             </p>
 
             <div className="flex gap-3 sm:gap-4 pt-1 sm:pt-2">
-              <Link href="#" className="text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400 transition-colors p-2 hover:bg-foreground/5 rounded-full touch-target">
+              <a href="https://twitter.com/getbonuscasinos" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitter" className="text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400 transition-colors p-2 hover:bg-foreground/5 rounded-full touch-target">
                 <Twitter className="h-4 w-4 sm:h-5 sm:w-5" />
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400 transition-colors p-2 hover:bg-foreground/5 rounded-full touch-target">
+              </a>
+              <a href="https://facebook.com/getbonuscasinos" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" className="text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400 transition-colors p-2 hover:bg-foreground/5 rounded-full touch-target">
                 <Facebook className="h-4 w-4 sm:h-5 sm:w-5" />
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400 transition-colors p-2 hover:bg-foreground/5 rounded-full touch-target">
+              </a>
+              <a href="https://instagram.com/getbonuscasinos" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400 transition-colors p-2 hover:bg-foreground/5 rounded-full touch-target">
                 <Instagram className="h-4 w-4 sm:h-5 sm:w-5" />
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -198,15 +198,19 @@ export function Footer() {
             <p className="text-muted-foreground text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">
               Subscribe to get the latest bonuses and exclusive offers delivered to your inbox.
             </p>
-            <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-3">
+            <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-3" aria-label="Newsletter subscription">
               <div className="relative">
+                <label htmlFor="footer-email" className="sr-only">Email address</label>
                 <input
+                  id="footer-email"
                   type="email"
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   disabled={isSubmitting}
+                  autoComplete="email"
+                  aria-label="Email address for newsletter"
                   className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-input bg-background ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:border-input transition-all text-xs sm:text-sm shadow-sm disabled:opacity-50"
                 />
                 <Button

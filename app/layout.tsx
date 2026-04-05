@@ -33,6 +33,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const metadataBase = new URL(getCanonicalOrigin(h));
   const description = siteBrandDescription(brand);
 
+  const ogImageUrl = `${metadataBase}/og-image.png`;
+
   return {
     metadataBase,
     title: {
@@ -40,6 +42,18 @@ export async function generateMetadata(): Promise<Metadata> {
       template: `%s | ${brand.siteTitle}`,
     },
     description,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true },
+    },
+    alternates: {
+      canonical: metadataBase.toString(),
+      languages: {
+        "en": metadataBase.toString(),
+        "x-default": metadataBase.toString(),
+      },
+    },
     openGraph: {
       type: "website",
       locale: "en",
@@ -47,11 +61,20 @@ export async function generateMetadata(): Promise<Metadata> {
       title: brand.siteTitle,
       description,
       url: metadataBase,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${brand.siteTitle} — casino bonuses & welcome offers`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: brand.siteTitle,
       description,
+      images: [ogImageUrl],
     },
   };
 }

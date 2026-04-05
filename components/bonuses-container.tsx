@@ -15,6 +15,7 @@ export function BonusesContainer() {
         <main className="space-y-0">
           <section className="relative w-full overflow-hidden bg-background pt-24 pb-8 lg:pt-32 lg:pb-12">
             <div className="container mx-auto px-4 text-center">
+              <h1 className="text-3xl font-bold text-foreground mb-3">Compare the Best Casino Bonuses &amp; Welcome Offers</h1>
               <p className="text-muted-foreground">Loading bonuses...</p>
             </div>
           </section>
