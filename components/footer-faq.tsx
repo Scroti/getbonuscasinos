@@ -33,7 +33,22 @@ export function FooterFaq({ siteTitle }: { siteTitle: string }) {
         Common questions
       </h3>
       <div className="min-w-0 rounded-xl border border-foreground/10 bg-foreground/[0.03] px-3 sm:px-4 shadow-sm">
-        <Accordion type="single" collapsible className="w-full">
+        {/* Hidden but crawlable FAQ content — present in DOM for search engines and no-JS users */}
+        <div className="sr-only" aria-hidden="false">
+          {items.map((item, i) => (
+            <div key={`faq-hidden-${i}`}>
+              <h4>{item.question}</h4>
+              {item.question === INTRO_PUBLISH_Q ? (
+                <p>
+                  Short answers about how we publish listings. How we list offers has the full methodology.
+                </p>
+              ) : (
+                <div>{item.answer}</div>
+              )}
+            </div>
+          ))}
+        </div>
+        <Accordion type="single" collapsible defaultValue="faq-0" className="w-full">
           {items.map((item, i) => (
             <AccordionItem key={`${item.question}-${i}`} value={`faq-${i}`} className="border-foreground/10">
               <AccordionTrigger className={triggerClass}>{item.question}</AccordionTrigger>
