@@ -11,7 +11,6 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog"
 import { Sparkles, CheckCircle2, AlertCircle } from "lucide-react"
-import { subscribeToNewsletter } from "@/lib/firebase/newsletter"
 
 interface NewsletterModalProps {
   isOpen: boolean
@@ -32,29 +31,32 @@ export function NewsletterModal({ isOpen, onClose }: NewsletterModalProps) {
     setStatus({ type: null, message: '' })
 
     try {
-      // Get user profile data before subscribing
       const { getUserProfileData } = await import('@/lib/firebase/newsletter')
       const profileData = await getUserProfileData()
-      
-      const result = await subscribeToNewsletter(email, profileData)
-      
-      if (result.alreadySubscribed) {
+
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, profileData }),
+      })
+
+      const data = await response.json()
+
+      if (data.alreadySubscribed) {
         setStatus({
           type: 'already-subscribed',
           message: 'This email is already subscribed! Thank you for your interest.',
         })
-        // Clear email after showing message
         setTimeout(() => {
           setEmail("")
           setStatus({ type: null, message: '' })
         }, 3000)
-      } else if (result.success) {
+      } else if (response.ok && data.success) {
         setStatus({
           type: 'success',
           message: 'Welcome to the club! Check your email for your bonus.',
         })
         setEmail("")
-        // Close modal after success
         setTimeout(() => {
           onClose()
           setStatus({ type: null, message: '' })
@@ -62,7 +64,7 @@ export function NewsletterModal({ isOpen, onClose }: NewsletterModalProps) {
       } else {
         setStatus({
           type: 'error',
-          message: result.error || 'Something went wrong. Please try again.',
+          message: data.error || 'Something went wrong. Please try again.',
         })
       }
     } catch (error) {
