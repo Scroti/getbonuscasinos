@@ -14,12 +14,30 @@ import { db } from "@/lib/firebase/config";
 
 const COLLECTION_NAME = "newsletter_subscribers";
 
-async function verifyAdmin() {
+async function verifyAdmin(request: NextRequest) {
+  const adminCode = process.env.ADMIN_CODE;
+
+  // 1. Authorization: Bearer <ADMIN_CODE>
+  const authHeader = request.headers.get("authorization");
+  if (authHeader?.startsWith("Bearer ") && adminCode) {
+    const provided = authHeader.slice(7).trim();
+    if (provided === adminCode) return true;
+  }
+
+  // 2. ?key=<ADMIN_CODE> query param
+  const { searchParams } = new URL(request.url);
+  const keyParam = searchParams.get("key");
+  if (keyParam && adminCode && keyParam === adminCode) return true;
+
+  // 3. admin_token cookie (existing /admin login flow)
   const cookieStore = await cookies();
   const adminToken = cookieStore.get("admin_token");
-  if (!adminToken) return false;
-  const expectedToken = process.env.ADMIN_TOKEN || "admin_authenticated";
-  return adminToken.value === expectedToken;
+  if (adminToken) {
+    const expectedToken = process.env.ADMIN_TOKEN || "admin_authenticated";
+    if (adminToken.value === expectedToken) return true;
+  }
+
+  return false;
 }
 
 function toISOString(value: unknown): string | null {
@@ -36,7 +54,7 @@ function toISOString(value: unknown): string | null {
 //   ?limit=100  (optional, default 500)
 export async function GET(request: NextRequest) {
   try {
-    if (!(await verifyAdmin())) {
+    if (!(await verifyAdmin(request))) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
@@ -114,7 +132,7 @@ export async function GET(request: NextRequest) {
 //   ?id=<docId>
 export async function DELETE(request: NextRequest) {
   try {
-    if (!(await verifyAdmin())) {
+    if (!(await verifyAdmin(request))) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
