@@ -54,13 +54,13 @@ export function NewsletterModal({ isOpen, onClose }: NewsletterModalProps) {
       } else if (response.ok && data.success) {
         setStatus({
           type: 'success',
-          message: 'Welcome to the club! Check your email for your bonus.',
+          message: 'Almost there! Check your inbox to confirm your subscription.',
         })
         setEmail("")
         setTimeout(() => {
           onClose()
           setStatus({ type: null, message: '' })
-        }, 2000)
+        }, 4000)
       } else {
         setStatus({
           type: 'error',

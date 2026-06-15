@@ -1,20 +1,20 @@
-import { collection, addDoc, query, where, getDocs, serverTimestamp, deleteDoc } from 'firebase/firestore';
+import {
+  collection,
+  addDoc,
+  query,
+  where,
+  getDocs,
+  serverTimestamp,
+  deleteDoc,
+  doc,
+  updateDoc,
+  Timestamp,
+} from 'firebase/firestore';
 import { db } from './config';
 
 const COLLECTION_NAME = 'newsletter_subscribers';
 
-export interface NewsletterSubscriber {
-  email: string;
-  subscribedAt: Date;
-  country?: string;
-  countryCode?: string;
-  timezone?: string;
-  language?: string;
-  userAgent?: string;
-  deviceType?: string;
-  referrer?: string;
-  screenResolution?: string;
-}
+export type SubscriberStatus = 'pending' | 'active';
 
 export interface UserProfileData {
   country?: string;
@@ -27,41 +27,32 @@ export interface UserProfileData {
   screenResolution?: string;
 }
 
-/**
- * Checks if an email is already subscribed
- */
-export async function isEmailSubscribed(email: string): Promise<boolean> {
-  try {
-    const normalizedEmail = email.toLowerCase().trim();
-    const q = query(
-      collection(db, COLLECTION_NAME),
-      where('email', '==', normalizedEmail)
-    );
-    const snapshot = await getDocs(q);
-    return !snapshot.empty;
-  } catch (error) {
-    console.error('Error checking email subscription:', error);
-    throw error;
-  }
+export interface SubscriberRecord extends UserProfileData {
+  email: string;
+  status: SubscriberStatus;
+  subscribedAt: Timestamp;
+  confirmedAt: Timestamp | null;
+  confirmationToken: string | null;
+  tokenExpiresAt: Timestamp | null;
+  domain?: string;
+}
+
+export interface SubscriberDoc {
+  id: string;
+  data: SubscriberRecord;
 }
 
 /**
- * Detects user country and other profile data
+ * Detects user country and other profile data (browser-side only)
  */
 export async function getUserProfileData(): Promise<UserProfileData> {
   const profileData: UserProfileData = {};
 
   try {
-    // Get timezone
     profileData.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-    // Get language
     profileData.language = navigator.language || navigator.languages?.[0] || 'en';
-
-    // Get user agent
     profileData.userAgent = navigator.userAgent;
 
-    // Detect device type
     const userAgent = navigator.userAgent.toLowerCase();
     if (/mobile|android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent)) {
       profileData.deviceType = 'mobile';
@@ -71,13 +62,9 @@ export async function getUserProfileData(): Promise<UserProfileData> {
       profileData.deviceType = 'desktop';
     }
 
-    // Get screen resolution
     profileData.screenResolution = `${window.screen.width}x${window.screen.height}`;
-
-    // Get referrer
     profileData.referrer = document.referrer || 'direct';
 
-    // Get country using IP geolocation (free service)
     try {
       const ipResponse = await fetch('https://ipapi.co/json/');
       if (ipResponse.ok) {
@@ -85,8 +72,7 @@ export async function getUserProfileData(): Promise<UserProfileData> {
         profileData.country = ipData.country_name || '';
         profileData.countryCode = ipData.country_code || '';
       }
-    } catch (ipError) {
-      // Fallback: try alternative service
+    } catch {
       try {
         const altResponse = await fetch('https://ip-api.com/json/?fields=country,countryCode');
         if (altResponse.ok) {
@@ -105,15 +91,71 @@ export async function getUserProfileData(): Promise<UserProfileData> {
   return profileData;
 }
 
+export async function findSubscriberByEmail(email: string): Promise<SubscriberDoc | null> {
+  const normalizedEmail = email.toLowerCase().trim();
+  const q = query(collection(db, COLLECTION_NAME), where('email', '==', normalizedEmail));
+  const snapshot = await getDocs(q);
+  if (snapshot.empty) return null;
+  const docSnap = snapshot.docs[0];
+  return { id: docSnap.id, data: docSnap.data() as SubscriberRecord };
+}
+
+export async function findSubscriberByToken(token: string): Promise<SubscriberDoc | null> {
+  const q = query(collection(db, COLLECTION_NAME), where('confirmationToken', '==', token));
+  const snapshot = await getDocs(q);
+  if (snapshot.empty) return null;
+  const docSnap = snapshot.docs[0];
+  return { id: docSnap.id, data: docSnap.data() as SubscriberRecord };
+}
+
+export async function createPendingSubscriber(params: {
+  email: string;
+  token: string;
+  expiresAt: Date;
+  domain: string;
+  profileData?: UserProfileData;
+}): Promise<void> {
+  const { email, token, expiresAt, domain, profileData } = params;
+  await addDoc(collection(db, COLLECTION_NAME), {
+    email: email.toLowerCase().trim(),
+    status: 'pending' as SubscriberStatus,
+    subscribedAt: serverTimestamp(),
+    confirmedAt: null,
+    confirmationToken: token,
+    tokenExpiresAt: Timestamp.fromDate(expiresAt),
+    domain,
+    ...(profileData || {}),
+  });
+}
+
+export async function updateSubscriberToken(
+  docId: string,
+  token: string,
+  expiresAt: Date
+): Promise<void> {
+  await updateDoc(doc(db, COLLECTION_NAME, docId), {
+    confirmationToken: token,
+    tokenExpiresAt: Timestamp.fromDate(expiresAt),
+  });
+}
+
+export async function activateSubscriber(docId: string): Promise<void> {
+  await updateDoc(doc(db, COLLECTION_NAME, docId), {
+    status: 'active' as SubscriberStatus,
+    confirmedAt: serverTimestamp(),
+  });
+}
+
 /**
- * Unsubscribes an email from the newsletter by deleting it from Firestore
- * Returns 'success' if unsubscribed, 'not-found' if email not found, or 'error' on failure
+ * Unsubscribes an email by deleting it from Firestore.
+ * Works for both pending and active subscribers.
  */
-export async function unsubscribeFromNewsletter(email: string): Promise<'success' | 'not-found' | 'error'> {
+export async function unsubscribeFromNewsletter(
+  email: string
+): Promise<'success' | 'not-found' | 'error'> {
   try {
     const normalizedEmail = email.toLowerCase().trim();
 
-    // Find the document(s) with this email
     const q = query(
       collection(db, COLLECTION_NAME),
       where('email', '==', normalizedEmail)
@@ -121,74 +163,15 @@ export async function unsubscribeFromNewsletter(email: string): Promise<'success
     const snapshot = await getDocs(q);
 
     if (snapshot.empty) {
-      console.log(`Email '${normalizedEmail}' not found in subscribers.`);
       return 'not-found';
     }
 
-    // Delete all documents with this email (should only be one, but handle multiple)
-    const deletePromises = snapshot.docs.map(doc => deleteDoc(doc.ref));
+    const deletePromises = snapshot.docs.map((d) => deleteDoc(d.ref));
     await Promise.all(deletePromises);
 
-    console.log(`Email '${normalizedEmail}' unsubscribed successfully.`);
     return 'success';
   } catch (error) {
     console.error('Error unsubscribing from newsletter:', error);
     return 'error';
   }
 }
-
-/**
- * Subscribes an email to the newsletter with user profile data
- * Returns true if successfully subscribed, false if already subscribed
- */
-export async function subscribeToNewsletter(
-  email: string,
-  profileData?: UserProfileData
-): Promise<{ success: boolean; alreadySubscribed: boolean; error?: string }> {
-  try {
-    const normalizedEmail = email.toLowerCase().trim();
-
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(normalizedEmail)) {
-      return {
-        success: false,
-        alreadySubscribed: false,
-        error: 'Invalid email format',
-      };
-    }
-
-    // Check if email is already subscribed
-    const alreadySubscribed = await isEmailSubscribed(normalizedEmail);
-    if (alreadySubscribed) {
-      return {
-        success: false,
-        alreadySubscribed: true,
-      };
-    }
-
-    // Get user profile data if not provided
-    const userProfile = profileData || await getUserProfileData();
-
-    // Add new subscriber with profile data
-    await addDoc(collection(db, COLLECTION_NAME), {
-      email: normalizedEmail,
-      subscribedAt: serverTimestamp(),
-      ...userProfile, // Spread all profile data
-    });
-
-    return {
-      success: true,
-      alreadySubscribed: false,
-    };
-  } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : String(error);
-    console.error('Error subscribing to newsletter:', errorMessage);
-    return {
-      success: false,
-      alreadySubscribed: false,
-      error: errorMessage,
-    };
-  }
-}
-
